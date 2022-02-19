@@ -1,194 +1,152 @@
-# a = 0
-# while True:
-#     a = a + 1
-#     if (a % 10 == 3 or a % 10 == 6 or a % 10 == 9)and(a // 10 == 3 or a // 10 == 6 or a // 10 == 9):
-#         print("**")
-#     elif a % 10 == 3 or a % 10 == 6 or a % 10 == 9:
-#         print("*")
-#     elif a // 10 == 3 or a // 10 == 6 or a // 10 == 9:
-#         print("*")
-#     else:
-#         print(a)
-#     if a == 100:
-#         break
-# a= [1,2,3,4,5]
-# print(a)
-#
-# a= [1,2,3]
-# print(a[0] + a[2])
-# print(a[-2])
-# a= [1,2,3,['a','b','c']]
-# print(a[3])
-# print(a[3][0])
-# print(a[-1][0])
-# a = [1,2,['a','b',['life', 'is' ]]]
-# print(a[2][2][0])
-# print(a[2][2][1])
-# a = [1,2,3,4,5]
-# print(a[0:2])
-# b = a[:2]
-# print(b)
-# c = a[2:]
-# print(c)
-# a= [1,2,3,['a','b','c'],4,5]
-# print(a[2:5])
-# print(a[3][:2])
-#  a = [1,2,3]
-#  b = [4,5,6]
-#  print(a+b)
-#  print(a*3)
-#  print(len(a))
-#
-#  a = [1,2,3]
-#  print(a[2]+"hi")
-#  print(str(a[2])+"hi")
-#  print(str(a[2])+"hi")
-#
-#  # 리스트의 수정
-#  a= [1,2,3]
-#  print(a)
-#  a[2] = 4
-#  print(a)
-#  a[1] = 5
-#  print(a)
-#  del a[1] #제거하는것
-#  print(a)
-# b = []
+#-파이썬 300제 문제-
+#111
+# a = input()
+# print(a*2)
+#112
 # a = int(input())
-# b.append(a)#삽입
-# print(b)
-# a = [1,2,3]
-# a.append(4)
-# print(a)
-#
-# a = [1,2,3,4]
-# a.sort
-# print(a)
-# a = ['a','c','b']
-# print(a)
-# a.reverse()   #뒤집는거
-# print(a)
-# a.sort(reverse=False)#그대로 정렬
-# print(a)
-# a.sort(reverse=True)#거꾸로 정렬
-# print(a)
-# a.sort()#그대로 정렬
-# print(a)
-#
-# a= [1,2,3]
-# a.index(0) -> #리스트 안에 없어서 에러
-# print(a)
-#
-# a= [1,2,3]
-# a.insert(0,4) #삽입
-# print(a)
-# a.insert(1,7)
-# print(a)
-#
-# a = [1,2,3,1,2,3]
-# a.remove(3)  #제거
-# print(a)
-# a.remove(3)
-# print(a)
-#
-# a = [1,2,3]
-# a.remove(2)
-# print(a)
-# a = [4,5,6]
-# a.pop(2)         #제거
-# print(a)
-# a.pop(0)
-# print(a)
-#
-# a = [1,2,3,1]
-# print(a.count(1))         #개수 세는거
-# print(a.count(2))
-#
-# a = [1,2,3]
-# a.extend(4,5) #확장
-# print(a)
-# movie = ["avengers", 'six sense', 'starwars']
-# print(movie)
-# movie.append("dmdkkdk")
-# print(movie)
-# movie.remove("six sense")
-# print(movie)
-#
-# data = [2,4,3,1,5,10,9]
-# data.sort()
-# print(data)
-# data.sort(reverse=True)
-# print(data)
-# #백준10818
-# n = int(input())
-# b = 1
-# data = [int(input())]
-# while True:
-#     data.append(int(input()))
-#     b = b+1
-#     if n == b:
-#         break
-# data.sort()
-# print(data[0], data[b-1])
+# print(a + 10)
+#113
+# a = int(input())
+# if a%2 == 0:
+#     print("짝수")
+# else:
+#     print("홀수")
+#114
+# a = int(input())
+# if a >=235:
+#     print(255)
+# else:
+#     print(a + 20)
+# 115
+# a = int(input())
+# if a <= 20:
+#     print(0)
+# else:
+#     print(a - 20)
+#116
+# a,b = input().split(":")
+# if int(b) == 00:
+#     print("정각입니다")
+# else:
+#     print("정각이 아닙니다")
+#116re
+# time = input("현재시간:")
+# if time[-2:] == "00":
+#     print("정각입니다.")
+# else:
+#     print("정각이 아닙니다.")
+#117
+# fruit = ["사과", "포도", "홍시"]
+# a = input("좋아하는 과일은? ")
+# if a in fruit:
+#     print("정답입니다")
+# else:
+#     print("오답입니다")
+# 118
+# warn_investment_list = ["Microsoft", "Google", "Naver", "Kakao", "SAMSUNG", "LG"]
+# a = input("투자종목  ")
+# if a in warn_investment_list:
+#     print("투자경고종목입니다")
+# else:
+#     print("투자경고종목이 아닙니다")\
+#119
+# fruit = {"봄" : "딸기", "여름" : "토마토", "가을" : "사과"}
+# a = input("제가 좋아하는 계절은? ")
+# if a in fruit:
+#     print("정답입니다")
+# else:
+#     print("오답입니다")
+#119re(취지에 맞음)
+# fruit = {"봄" : "딸기", "여름" : "토마토", "가을" : "사과"}
+# a = input("제가 좋아하는 계절은? ")
+# if a in fruit.keys():
+#     print("정답입니다")
+# else:
+#     print("오답입니다")
+#120
+# fruit = {"봄" : "딸기", "여름" : "토마토", "가을" : "사과"}
+# a = input("제가 좋아하는 과일은? ")
+# if a in fruit.values():      #key값과 value값은 다른거(key는 앞에값 value는 뒤에값)
+#     print("정답입니다")
+# else:
+#     print("오답입니다")
+#121
+# a = input("알파벳을 입력하세요. ")
+# if a.islower() == True:
+#     print(a.upper())
+# else:
+#     print(a.lower())
+#122
+# a = int(input())
+# if a >= 81 and a <= 100:
+#     print("A")
+# elif a >=61 and a <= 80:
+#     print("B")
+# elif a >=41 and a <= 60:
+#     print("C")
+# elif a >=21 and a <= 40:
+#     print("D")
+# else:
+#     print("E")
+#123
+# a,b = input().split()
+# if b == "달러":
+#     print(int(a)*1167)
+# elif b == "엔":
+#     print(int(a)*1.096)
+# elif b == "유로":
+#     print(int(a)*1268)
+# else:
+#     print(int(a)*171)
+#124
+# r = [int(input()),int(input()),int(input())]
+# print(max(r))
+#124 for문
+# r = []
+# for i in range(3):
+#     r.append(int(input()))
+# print(max(r))
+#125
+# a,b,c = input().split("-")
+# if a == "011":
+#     print("당신은 skt사용자입니다")
+# elif a == "016":
+#     print("당신은 kt사용자입니다")
+# elif a == "019":
+#     print("당신은 LGU사용자입니다")
+# else:
+#     print("당신은 알수없습니다.")
+#125 slice
+# a = input()
+# if a[0:3] == "011":       #slice 대괄호 후 0부터 3까지 중간에 :붙이기.. 3개 ex 1:2:3 붙으면 마지막은 간격
+#     print("skt")
+# if a[0:3] == "016":
+#     print("kt")
+# if a[0:3] == "019":
+#     print("LGU")
+# else:
+#     print("알수없음")
+#126
+# a = int(input())
+# if a[4] == "0"or"1"or"2":
+#     print("강북구")
+# elif a[4] == "4"or"3"or"5":
+#     print("도봉구")
+# elif a[4] == "7"or"8"or"9"or"6":
+#     print("노원구")
+#127
+# a,b = input().split("-")
+# c = (b[0])
+# if c == 1or 3:
+#     print("남자입니다")
+# else:
+#     print("여자입니다")
+#128
+# a,b = input().split("-")
+# c = (b[1]+b[2])
+# if c > 8:
+#     print("서울이 아닙니다")
+# else:
+#     print("서울입니다")
+#129
 
-# #1546
-# a = int(input())    #과목의 개수수l = []     #리스트 원래점수
-# L = []    #다른 리스트 바뀐 점수
-# anw = 0    #정답변주를 0으로 초기화시켜놓음
-# for i in range(a):    #a번만큼 반복
-#     b = int(input())    #b값에 숫자를 입력하고
-#     l.append(b)  #리스트에 b를 넣어줘
-# M = max(l)
-# for j in range(len()): #리스트의 길이만큼 반복 = 점수가 나와있는 과목의 개수
-#     c = l[j]/M*100  #점수를 높게 조작하는 수식
-#     L.append(c)     #조작된 점수를 L이라는 리스트에 넣어줘
-#     anw = sum(L)/len(L)  #평균값을 anw라는 변수에 대입
-# print(anw)   #anw를 출력
-
-# t1 = ()
-# t2 = (1,)  #1개의 요소만을 가질 때는 요소 뒤에 , 를 붙여야함
-# t3 = (1,2,3)
-# t4 = 1,2,3
-# t5 = ('a','b',('ab','cd'))
-
-# t1 = ('a', 'b', 'c')
-# print(t1)
-# t1 = ('a', 'b', 'd')
-# print(t1)
-#
-# t1 = (1,2,'a','b')
-# t2 = (3,4)
-# print(t1= t2)
-# print(t2*3)
-# print(len(t1))
-
-# Sport = {"김연아":"피겨스케이팅","류현진":"야구","손흥민":"축구}
-# print(sport)
-# print(type(sport))    #딕셔너리엿나
-
-# a = {1:'hi'}
-# a = {'a':[1,2,3]}
-# print(a)
-# print(a1)
-
-# a = {1:'a'}
-# print(a)
-# a[2] = 'b'          #[]안의 값은 key, =오른쪽값은 value 가 된다
-# a['name']='son'
-# a[3] = [1,2,3]          #이것도 딕션얼이
-# print(a)
-# del a[1]
-# print(a)
-# print(len(a))
-#
-# grade = {'Son':7, 'kane':10}
-# print(grade['Son'])
-# print(gradep'Kane')
-#
-# a = {1:'a'. 2:'b'}
-# print(a[1])
-# print(a[2])
-#
-# a = {'a':1, 'b:2'}
-# print(a['a'])
-# print(a['b'])
