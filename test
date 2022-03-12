@@ -1,0 +1,61 @@
+# 1(a)
+# print("5 Dan")
+# print("5*2 =", 5*2)
+# 2(a)
+# a = int(input())
+# b = int(input())
+# print(a*b)
+# print(a/b)
+# 3(a)
+# yard = input()
+# cm = float(yard)*float(91.44)
+# print(yard+"yard"+"="+str(cm))
+# 4(a)
+# a = input()
+# b = input()
+# print(a+" and "+b)
+# print(a+"&"+b)
+# 5(a)
+# a = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+# o = int(input())
+# for i in range(o,a[14],o):
+#     print(i)
+#6(a)
+# a = "dog"
+# b = "cat"
+# c = "chick"
+# d = int(input("Numbers? "))
+# if d == 1:
+#     print(a)
+# elif d == 2:
+#     print(b)
+# elif d == 3:
+#     print(c)
+# else:
+#     print("i don't know")
+# 8 (b)
+# a,b,c,d = input().split()
+# a = int(a)
+# b = int(b)
+# c = int(c)
+# d = int(d)
+# avg = (a+b+c+d)/4
+# print(avg)
+# if avg >79:
+#     print("pass")
+# else:
+#     print("fail")
+# 1(b)
+# print("1plus1 = Gwi yo mi")
+# print("1+1 =",1+1)
+# 2(b)
+# x = float(input())
+# y = float(input())
+# print(x*y)
+# 3(b)
+# x = int(input())
+# y = int(input())
+# z = int(input())
+#
+# print("sum =",int((x+y+z)))
+# print("avg =",int((x+y+z)/3))
