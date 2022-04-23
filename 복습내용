@@ -83,5 +83,81 @@
 # dn = int(input())
 # for i in range(1,10):
 #     print("%d X %d = %d")
+#함수
+#define
+# def 함수 이름(함수를 실행할때 필요한 데이터):
+#     함수 실행 내용
+#     ~
+#     ~
+#     ~
+#
+#
+# def test(): #함수 생성
+#     print("Hello world!")
+# test() #함수 호출.
 
+# def test2():
+#     print(a+b)
+#
+# test2(2,70
+
+# #return 값 반환
+# def test3()
+#     return 100
+#
+# test3()
+#  print(test3(),a)
+#  #재귀함수
+#  def test(n):
+#      if n == 10:
+#          return n
+#      test(n + 1)
+# print(test(0))
+
+#구구단 -> 입려받은 하나의 정수값의 단을 출력(+함수로)
+#ex)입력 : 3
+#출력
+#3X1 = 3
+#3X2 = 6
+
+# def gugu(dan):
+#     for i in range(1,10):
+#         print("%d X %d = %d" % (dan, i, dan * i))
+#         print(dan,"x",i, "=", dan+1)  #%d 쓸줄 모르면
+# a = int(input())
+# gugu(a)
+client_info = ["58879663", "홍길동", 100000]
+def show_and_input_interface():
+    print("실행하실 업무 번호를 선택해주세요")
+    print("1. 입금")
+    print("2. 출금")
+    print("3. 통장 총액 확인")
+    print("4. 종료")
+    return int(input("입력 : "))
+
+while True:
+    number = int(input("회원번호를 입력해주세요 : "))
+    if number != client_info[0]:
+        print("회원번호를 잘못입력하셧습니디. 다시 입력해주세요")
+    else:
+        print("환영합니다. %s 고객님" % client_info[1])
+        break
+while True:    
+    input_result = show_and_input_interface()
+    if input_result == 1:
+        client_info[2] += int(input("입금하실 금액을 입력해주세요(원 제외 : "))
+        print("성공적으로 입금되었습니다!")
+    elif input_result == 2:
+        print("현재 고객님의 통장금액은 %d원입니다."%client_info[2])
+        out_money = int(input("출금하실 금액을 입력해주세요(원 제외):"))
+        if out_money>client_info[2] > out_money:    
+            print("출금이 완료되었습니다. 감사합니다")
+    elif input_result == 3:
+        print("%s 고객님의 통장 총액은 %d원입니다"% (client_info[1], client_info[2]))
+    elif input_result == 4:
+        print("이용해주셔셔 감사합니다")
+        print("<<프로그램 종료>>")
+        break
+    else:
+        print("없는번호입니다. 다시 입력해주세요.")
 
