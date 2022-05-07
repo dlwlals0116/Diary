@@ -99,3 +99,31 @@ age2 = 13
 
 for in i range(3,31,3)
     print(i)
+a = [" "," "," "," "," "," "," "," "," "," "]
+def tictacto():
+    print(a[1] + "  ㅣ  " + a[2] + " ㅣ  " + a[3])
+    print(" ㅡㅡㅡㅡㅡㅡㅡ")
+    print(a[4] + "  ㅣ  " + a[5] + " ㅣ  " + a[6])
+    print(" ㅡㅡㅡㅡㅡㅡㅡ")
+    print(a[7] + "  ㅣ  " + a[8] + " ㅣ  " + a[9])
+import random
+tictacto()
+jungbok = [1,2,3,4,5,6,7,8,9]
+while True:
+    b = int(input())
+    a[b] = "O"
+    tictacto()
+    jungbok.remove(b)
+    c = random.randrange(1,10)
+    print("상대:",c)
+    a[c] = "X"
+    tictacto()
+    jungbok.remove()
+
+
+
+
+
+
+
+
