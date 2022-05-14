@@ -1,78 +1,82 @@
-
-a = ["-", "-", "-", "-", "-", "-", "-", "-", "-", "-"]
-
-def tictacto():
-        print(" " + a[0] + "  ㅣ  " + a[1] + " ㅣ  " + a[2])
-        print("ㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
-        print(" " + a[3] + "  ㅣ  " + a[4] + " ㅣ  " + a[5])
-        print("ㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
-        print(" " + a[6] + "  ㅣ  " + a[7] + " ㅣ  " + a[8])
-import random
-tictacto()
-jungbok = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-jj = 7
-while True:
-    b = int(input("원하는 칸을 숫자로 쓰시오 : "))
-    a[b] = "o"
-    jungbok.remove(b)
-    tictacto()
-    if a[0] == "o" and a[1] == "o" and a[2] == "o":
-        print("우리팀 승!")
-        break
-    elif a[0] == "o" and a[3] == "o" and a[6] == "o":
-        print("우리팀 승!")
-        break
-    elif a[1] == "o" and a[4] == "o" and a[7] == "o":
-        print("우리팀 승!")
-        break
-    elif a[2] == "o" and a[5] == "o" and a[8] == "o":
-        print("우리팀 승!")
-        break
-    elif a[0] == "o" and a[4] == "o" and a[8] == "o":
-        print("우리팀 승!")
-        break
-    elif a[2] == "o" and a[4] == "o" and a[6] == "o":
-        print("우리팀 승!")
-        break
-    elif a[3] == "o" and a[4] == "o" and a[6] == "o":
-        print("우리팀 승!")
-        break
-    elif a[6] == "o" and a[7] == "o" and a[8] == "o":
-        print("우리팀 승!")
-        break
-    # if a[0] == "X" or "o" and a[1] == "X" or "o" and a[2] == "X" or "o" and a[3] == "X" or "o" and a[4] == "X" or "o" and a[5] == "X" or "o" and a[6] == "X" or "o" and a[7] == "X" or "o" and a[8] == "X" or "o":
-    #     print("무승부")
-    #     break
-    er = jungbok[0]
-    re = jungbok[jj]
-    c = random.randrange(er, re)
-    jungbok.remove(c)
-    jj = jj - 2
-    print("상대:", c)
-    a[c] = "X"
-    if a[0] == "X" and a[1] == "X" and a[2] == "X":
-        print("상대팀 승!")
-        break
-    elif a[0] == "X" and a[3] == "X" and a[6] == "X":
-        print("상대팀 승!")
-        break
-    elif a[1] == "X" and a[4] == "X" and a[7] == "X":
-        print("상대팀 승!")
-        break
-    elif a[2] == "X" and a[5] == "X" and a[8] == "X":
-        print("상대팀 승!")
-        break
-    elif a[0] == "X" and a[4] == "X" and a[8] == "X":
-        print("상대팀 승!")
-        break
-    elif a[2] == "X" and a[4] == "X" and a[6] == "X":
-        print("상대팀 승!")
-        break
-    elif a[3] == "X" and a[4] == "X" and a[6] == "X":
-        print("상대팀 승!")
-        break
-    elif a[6] == "X" and a[7] == "X" and a[8] == "X":
-        print("상대팀 승!")
-        break
-ticacto()
-
+df = open("file", "w")
+if input() != 
+# identifi = input("아이디와 패스워드를입력하시오:")
+# if identifi != df:
+#     print("틀렸습니다. 나중에 다시 시도해주세요")
+#
+# a = ["-", "-", "-", "-", "-", "-", "-", "-", "-", "-"]
+#
+# def tictacto():
+#         print(" " + a[0] + "  ㅣ  " + a[1] + " ㅣ  " + a[2])
+#         print("ㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+#         print(" " + a[3] + "  ㅣ  " + a[4] + " ㅣ  " + a[5])
+#         print("ㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+#         print(" " + a[6] + "  ㅣ  " + a[7] + " ㅣ  " + a[8])
+# import random
+# tictacto()
+# jungbok = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+# jj = 7
+# while True:
+#     b = int(input("원하는 칸을 숫자로 쓰시오 : "))
+#     a[b] = "o"
+#     tictacto()
+#     jungbok.remove(b)
+#     if a[0] == "o" and a[1] == "o" and a[2] == "o":
+#         print("우리팀 승!")
+#         break
+#     elif a[0] == "o" and a[3] == "o" and a[6] == "o":
+#         print("우리팀 승!")
+#         break
+#     elif a[1] == "o" and a[4] == "o" and a[7] == "o":
+#         print("우리팀 승!")
+#         break
+#     elif a[2] == "o" and a[5] == "o" and a[8] == "o":
+#         print("우리팀 승!")
+#         break
+#     elif a[0] == "o" and a[4] == "o" and a[8] == "o":
+#         print("우리팀 승!")
+#         break
+#     elif a[2] == "o" and a[4] == "o" and a[6] == "o":
+#         print("우리팀 승!")
+#         break
+#     elif a[3] == "o" and a[4] == "o" and a[6] == "o":
+#         print("우리팀 승!")
+#         break
+#     elif a[6] == "o" and a[7] == "o" and a[8] == "o":
+#         print("우리팀 승!")
+#         break
+#     # if a[0] == "X" or "o" and a[1] == "X" or "o" and a[2] == "X" or "o" and a[3] == "X" or "o" and a[4] == "X" or "o" and a[5] == "X" or "o" and a[6] == "X" or "o" and a[7] == "X" or "o" and a[8] == "X" or "o":
+#     #     print("무승부")
+#     #     break
+#     er = jungbok[0]
+#     re = jungbok[jj]
+#     c = random.randrange(er, re + 1)
+#     jj = jj - 2
+#     print("상대:", c)
+#     a[c] = "X"
+#     tictacto()
+#     jungbok.remove(c)
+#     if a[0] == "X" and a[1] == "X" and a[2] == "X":
+#         print("상대팀 승!")
+#         break
+#     elif a[0] == "X" and a[3] == "X" and a[6] == "X":
+#         print("상대팀 승!")
+#         break
+#     elif a[1] == "X" and a[4] == "X" and a[7] == "X":
+#         print("상대팀 승!")
+#         break
+#     elif a[2] == "X" and a[5] == "X" and a[8] == "X":
+#         print("상대팀 승!")
+#         break
+#     elif a[0] == "X" and a[4] == "X" and a[8] == "X":
+#         print("상대팀 승!")
+#         break
+#     elif a[2] == "X" and a[4] == "X" and a[6] == "X":
+#         print("상대팀 승!")
+#         break
+#     elif a[3] == "X" and a[4] == "X" and a[6] == "X":
+#         print("상대팀 승!")
+#         break
+#     elif a[6] == "X" and a[7] == "X" and a[8] == "X":
+#         print("상대팀 승!")
+#         break
