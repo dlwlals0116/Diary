@@ -105,3 +105,76 @@
 #     실행문
 # for i in range(1,5):
 #     print(i)
+
+# #집합
+# 0s1 = set([1])
+# s2 = set([1,2])
+# s3 = set([3,4])
+# #합집합 구하기
+# print(s1|s2, s2| s3)
+# #차집합 구하기
+# print(s1-s2, s2 - s3)
+# #교집합 구하기
+# print(s1 &s2, s2 & s3)
+# a =
+
+#함수
+# f(x) = ax + b
+# f(x) = 결과값
+# x = 입력값
+#1부터 10까지 출력을 10 번 반복해라
+# def onetoten()
+#     for i in range(1,11)
+#
+#
+#
+# # def 함수명(매개변수):
+# #     실행문
+# #     return 결과값
+# def return_hi():
+#     return "hi"
+#
+# #키워드 파라미터 (kwagrs)는 결과 값을 딕셔너리 형태로 나타내고 싶을 때 사용한다.
+#
+# def print_kwargs(**kwargs):
+#     print(kwargs)
+#
+#매개 변수의 초기값을 설정해줄 수 있다.
+# def say_myself(name, age,man=True):
+#     print("나의 이름은 %s 입니다" % name)
+#     print("나의 나이는 %s 입니다" % age)
+#     if man:
+#         print("남자입니다")
+#     else:
+#         print("여자입니다")
+#
+# say_myself("이지민",15)
+#
+#
+# #함수의 결과값(반환값)의 개수는 무조건 1개이다.
+# def sum_mul(a,b):
+#     return a+b, a*b
+# print(sum_mul(3,4))
+
+# a = 1
+# def vartest():
+#     global a   #global a = 전역변수 a
+#     a = 2   # 함수 내에서 사용된 변수 = 지역변수
+#     return a
+# vartest()
+# print(a)
+
+# def solution(s):
+#     nums = {'zero':'0', 'one':'1', 'two':'2', 'three':'3', 'four':'4', 'five':'5', 'six':'6', 'seven':'7', 'eight':'8', 'nine':'9'}
+#     for key,value in nums.items():
+#         if key in s:
+#             s = s.replace(key,value)
+#     return int(s)
+# s = "23four5six7"
+# print(solution(s))
+
+a = input()
+a = a.lower()
+while '..' in a:
+    a = a.replace("..",".")
+print(a)
