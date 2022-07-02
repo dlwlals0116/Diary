@@ -173,8 +173,54 @@
 # s = "23four5six7"
 # print(solution(s))
 
-a = input()
-a = a.lower()
-while '..' in a:
-    a = a.replace("..",".")
-print(a)
+# def solution(a):
+#     ans = ''
+#     a = input()
+#     a = a.lower()
+#     while '..' in a:
+#         ans = ans.replace("..", ".")
+#     for i in a:
+#         if i.isalnum():
+#             ans += i
+#         elif  i in ['-', '_', ',']:
+#             ans += i
+#         else:
+#             pass
+#
+#     ans = ans.strip(".")
+#     if ans == "":
+#         ans = "a"
+#     if len(ans) >= 16:
+#         ans = ans[0:15]
+#         if ans[14] == ".":
+#             ans = ans[0:14]
+#
+#     while len(ans) < 3:
+#         ans += ans[-1]
+#     return ans
+
+def solution(id_list, report ,k):
+    ans = []
+    report = list(set(report))
+
+    report_user = {}
+    for string in report:
+        user, target = string.split()
+        if target not in report_user.keys():
+            report_user[target] = [user]
+        else:
+            report_user[target].append(user)
+    print(report_user)
+    result = [0] * len(id_list)
+    print(result)
+    for target in id_list:
+        if target in report_user.keys() and len(report_user[target]) >= k :
+            for user in report_user[target]:
+                print(user)
+                result[id_list.index(user)] +=1
+    return result
+id_list = ['muzi', 'frodo', 'apeach', "neo"]
+report =  ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
+k = 2
+
+print(solution(id_list, report ,k))
