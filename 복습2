@@ -224,3 +224,94 @@ report =  ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
 k = 2
 
 print(solution(id_list, report ,k))
+# print("i'm learning Python")
+# print('i\'m learning Python')
+# a = "hello python"
+# #문자열 인덱싱
+# print(a[0]) #출력값 => "H"
+# print(a[-1]) #출력값 => "d"
+#
+# #문자열 슬라이싱
+# print(a[:]) #출력값 => "Hello world"
+# print(a[2:5]) #출력값 => "llo"
+# print(a[-5:]) #출력값 => "
+#
+#
+# #문자열 더하기
+# a = "hello"
+# b = "World"
+# print(a+b) #출력값 => "Hello World"
+# print(a+' '+ b + '!') #출력값 => "Hello World!"
+#
+# #문자열 곱하기
+# star = "*"
+# print(star * 5) #출력값 => '*****'
+#
+# #문자열 길이 구하기
+# a = "Python"
+# print(len(a)) #출력값 => 6
+#
+# a = "Hello Ptyhon"
+# print(a.count("o")) #출력값 => 2 해당문자의 개수 반환
+# print(a.find('l')) #출력값 = 2 해당문자의 시작 인덱스 반환,
+#                    #없는값을 찾을시 -1 반환
+# print(a.index('x')) #출력값 => 2 해당문자의 시작인덱스 반환
+#                     #없는각을 찾을 시 오류발생
+# print(",".join(a)) #출력값 => H,e,l,l,o, ,P,y,t,h,o,n
+#                    #해당 문자를 인덱스 사이사이에 추가한 값을 반환
+#
+# print(a.replace('Py','My')) #출력값=> old문자를 new문자로 바꿔줌
+#
+# print(a.split()) #출력값 => ['Hello',  'Python'] 해당 문자를 기준으로 문자열을 나누어서 반환
+# print(a.upper()) #출력값 => HELLO PYTHON 문자열을 대문자로 변환
+# print(a.lower()) #출력값 => hellp python 문자열을 소문자로 반환
+#
+# a = "....app.le...."
+# #문자열에서 연속되는 해당 문자를 제거 후 반환
+# a.lstrip() #출력값 =>"app.le...."
+# a.strip() #출력값 =>"....apple...."
+# a.rstrip() #출력값 =>"....app.le"
+
+# a = input()
+# for i in range(0, 8):
+#     if "c=" in a:
+#         a = a.replace("c=", ".")
+#     elif "c-" in a:
+#         a = a.replace("c-", ".")
+#     elif "dz=" in a:
+#         a = a.replace("dz=", ".")
+#     elif "d-" in a:
+#         a = a.replace("d-", ".")
+#     elif "lj" in a:
+#         a = a.replace("lj", ".")
+#     elif "nj" in a:
+#         a = a.replace("nj", ".")
+#     elif "s=" in a:
+#         a = a.replace("s=", ".")
+#     elif "z=" in a:
+#         a = a.replace("z=", ".")
+# print(len(a))
+
+# #list
+# a = [4,1,3,2]
+# b = [5,8,6]-
+#
+# #리스트의 수정
+# a[3] = 7
+
+a = int(input())
+b = []
+for i in range(a):
+    x =int(input("k"))
+    print(x)
+    b.append(x)
+r = sum(b)
+t = r/a
+f = 0
+for i in range(a):
+    if b[i] >t:
+        f = f+1
+f = int(f)
+a = int(a)
+h = str(f/a*100)+"%"
+print(h)
