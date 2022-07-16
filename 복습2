@@ -315,3 +315,90 @@ f = int(f)
 a = int(a)
 h = str(f/a*100)+"%"
 print(h)
+# t1 = (1,)  #tuple 이 원소를 하나 가질 경우에는 , 을 넣어줘야 인식한다
+# t2 = (1,2,3)
+# l1 = [1,2,3]
+# t3 = tuple(l1)
+# t4 = 1,2,3
+# print(type(t1), type(t2), type(t3), type(t4)) #출력값 => <class 'tuple
+#
+# #튜플들끼리의 덧셈
+# print(t1+t2) #출력값 => (1,2,3,4,5,6)
+# print(t2*2)  #출력값 => (4,5,6,4,5,6)
+# print(t1[1]) #출력값 => 2
+# print(t2[1:]) #출력값 => (5,6)
+# print(len(t1)) #출력값 => 3
+#
+# #딕셔터리의 생성
+# d1 = {"key":"value"}
+# a = ["Hello"]
+# b = ["python"]
+# d2 = dict(zip(a,b))
+# print(d2, type(d2))
+#
+# #딕셔너리의 key값을 이용해서 value만 뽑아내기
+# print(d1["key"])
+#
+#
+#
+# d1 = {"apple":"사과", "banana":"바나나"}
+# #추가
+# d1["복숭아"] = "peach"
+# #삭제
+# del d1["banana"]
+# #수정
+# d1["apple"] = "수박"
+# print(d1) #출력값 => {'apple' : '수박', '복숭아' : 'peach'}
+#
+# #key값을 중복한다면 마지막 key값에 value값이 사용된다
+#
+# #함수
+# d1 = {"A" : 1, "B" : 2, "C" : 3}
+# #key값들로 된 자료 만들기
+# print(1 in d1.values())
+# print(1 in d1.keys())
+# print(1 in d1.items())
+# for i in d1.keys():
+#     print(i)
+#     #출력값 => "A"
+#     #         "B"
+#     #         "C"
+#     #key 값이 딕셔너리 안에 있는지 확인
+# print("A"in d1) #출력값 => True
+# s1 = set([1,2,3,4])
+# s2 = set([3,4,5])
+# s3 = set([6,7,8])
+#
+# #합집합 |
+# print(s1 | s2) #출력값 => {1,2,3,4,5}
+# print(s2 | s3) #출력값 => {3,4,5,6,7,8}
+# #교집합 &
+# print(s1&s2) #출력값 => {3,4}
+# print(s2&s3) #출력값 => set()
+#
+# #차집합
+# print(s1 -s2)
+# print(s1 - s3)
+#문제
+# def solution(phone_book):
+#     phone_book.sort()
+#     print(phone_book)
+#     for i in range(len(phone_book)-1):
+#         if phone_book[i] == phone_book[i+1][:len(phone_book[i])]:
+#             return False
+#     return True
+# phone_book = ["12", "123", "1235", "567", "88"]b
+# print(solution(phone_book))
+
+# for i in range(10,0,-1):
+#     print(i)
+
+# d1 = {'한국':'Korea', "미국":'America', "일본": 'japan'}
+# print("japan" in d1.values())
+
+L1 = ["AB", "BC", "DE"]
+L2 = ["AD", "DE", "BD"]
+#L1과 L2의 겹치는값은 무엇인가?
+a = set(["AB", "BC", "DE"])
+b = set(["AD", "DE", "BD"])
+print(a&b)
