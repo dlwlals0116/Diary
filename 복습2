@@ -402,3 +402,73 @@ L2 = ["AD", "DE", "BD"]
 a = set(["AB", "BC", "DE"])
 b = set(["AD", "DE", "BD"])
 print(a&b)
+# print(bool('python'), bool(''))  #출력값 => True False
+# print(bool([1,2,3]), bool([]))  #출력값 => True False
+# print(bool((1,2)), bool (({})))  #출력값 => True False
+# print(bool({'1' : 1}, bool ({}))  #출력값 => True False
+# print(bool(-3), bool(0))  #출력값 => True False 정수는 0만 거짓, 나머지는 모두 참
+# print(bool(None))
+
+#들여쓰기란? 해당 분기분의 속해있을 경우에 실행된다를 의미
+#tab 키 사용
+# if True:
+#     if False:
+#         print("A")
+#     else:
+#         print("B")
+# else:
+#     if True:
+#         print("C")
+#     else:
+#         print("D")
+# print("E")
+
+# a = int(input("a : "))
+# b = int(input("b : "))
+# if a > b:
+#     print("a가 b보다 큽니다")
+# elif a < b:
+#     print("a가 b보다 작습니다")
+# elif a == b:
+#     print("a와 b는 같습니다")
+#
+# a = 3
+# b = 4
+# print(a or b)
+# print(a and b)
+# print(bool(not(0)))
+# a = "A"
+# # b = "python"
+# # if a in  ["A","B","C"]:  #in = ~안에 있냐고 물어볼때 사용한다
+# #     print(a)
+# # if "y " not in b:
+# #     print("p")
+# # else:
+# #     print(b)
+# # 오븐문제
+# H,M = map(int, input().split())
+# #H = 17 M = 40 timer = 25
+# timer = int(input("timer: "))
+# M += timer #M = 120
+# if M >= 60:
+#     H += M // 60 #H += 2
+#     M = M % 60 #M = 0
+#     if H >= 24:
+#         H = H % 24
+# print(H,M)
+#반복문
+# while문 조건이 충족되는동안 반복을 실행
+# for문 x회동안 실행
+N = int(input("N: "))
+r = 0
+t = N
+while True:
+    a = t % 10  #t = 복제 a = 새로운수의 10의자리
+    b = (t // 10 + t % 10) % 10
+
+    t = 10 * a + b
+    r += 1
+
+    if t == N:
+        break
+print(r)
