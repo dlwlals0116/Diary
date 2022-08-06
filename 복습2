@@ -472,3 +472,49 @@ while True:
     if t == N:
         break
 print(r)
+# # 함수의 입력값이 없는 경우 ex) pop, upper, lower
+# def return_A():
+#     return_A()
+#
+# #함수의 반환값이 없는경우
+# def print_string(string:str):
+#     print(string)
+#
+# print(print_string("Hello"))
+#
+# #입력값, 반환값 둘 다 없는 경우
+#
+# def what_time_is_it_now():
+#     import datetime
+#     print(str(datetime.datetime.now())[:16])
+#
+# #매개변수의 개수가 몇개가 필요한지 모를경우
+# def sum_nums(*args):
+#     total = 0
+#     for num in args:
+#         total += num
+#     return total
+#
+# print(sum_nums(1,2,3,4,5,6,7,8,9)) #출력값 = 45
+#
+# #여러개의 문자열을 입력받아 하나의 문자열로 반환하는 sum_strings함수를 구현하시오
+#
+# #출력값 => "Hello Everyone My name is ParkChanBin
+#
+# def sum_strings(*args):
+#     full_string = ""
+#     for s in args:
+#         full_string += s
+#         full_string += ' '
+#     return full_string
+#
+# print(sum_strings("Hello","Everyone", "My", "name", "is", "parkChanBin"))
+
+def introduce_myself(name, age, job):
+    print("내이름은", name, "이고 내 나는", age, "살이고 내 직업은", job,"입니다")
+
+name = "이지민"
+age = "15"
+job = "student"
+introduce_myself(name,age,job)
+
