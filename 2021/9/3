@@ -1,0 +1,157 @@
+# # def solution(survey, choices):
+# #     answer = ''
+# #     point = [0, -3, -2, -1, 0,1,2,3]
+# #     type = {"RP" : 0, "CF" : 0, "JM" : 0, "AN" : 0}
+# #     for i in range(len(survey)):
+# #         if survey[i] not in type:
+# #             type[survey[i][::-1]] += -point[choices[i]]
+# #         else:
+# #             type[survey[i]] += point[choices[i]]
+# #
+# #     for j in type:
+# #         if type[j] <= 0:
+# #             answer += j[0]
+# #         else:
+# #             answer += j[1]
+# #     return answer
+# # #survey = ["AN", "CF", "MJ", "RT", "NA"]
+# # choices = [5, 3, 2, 7, 5]
+# # baseball game 만들기
+# # 중복 없이 0-9까지 정수중에 3개를 맞추는 게임
+# # [1,3,5]
+# # 정답안에 정수가 존재하나 자리가 같이 않다면 ball
+# # 정답안에 정수도 있고 자리도 같을경우 strike
+# # 정답 안에 정수가 아무것도 없을때 foul
+# #
+# # import random
+# #
+# # #로또 - 1~45즁 6개 골라서 맞추는것
+# #
+# # lotto = []
+# #
+# # while len(lotto) <= 5:
+# #     number = random.randint(1,45)
+# #     if number not in lotto:
+# #         lotto.append(number)
+# # lotto.sort()
+# # print(lotto)
+#
+# import random
+# answer = []
+# while len(answer) < 3:
+#    number = random.randint(0,9)
+#    if number not in answer:
+#        answer.append(number)
+#
+# cnt = 10
+#
+# #실행
+# while True:
+#    ball = 0
+#    strike = 0
+#    t,b,c = input("숫자 3개를 입력하세요").split()
+#    t = int(t)
+#    b = int(b)
+#    c = int(c)
+#    a = [t,b,c]
+#    for i in range(0,3):
+#        if a[i] in answer:
+#            if a[i] == answer[i]:
+#                strike += 1
+#            else:
+#                ball += 1
+#    print(cnt,"번 남았습니다")
+#
+#
+#    if ball == 0 and strike == 0:
+#        print("foul")
+#    print("ball =",ball)
+#    print("strike =",strike)
+#
+#
+#    cnt -= 1
+#    if cnt == 0:
+#        print(answer)
+#        exit() #종료코드
+#    if strike == 3:
+#        print("게임 승리")
+#        exit()
+# a = 11/2 #x와 y의 몫
+# b = 11//2 #x와 y위 정수로 내림한 몫
+# print("a = %f, b = %d" %(a,b))
+# a = 3
+# b = 4
+# c = a + b
+# d = a - b
+# #절댓값
+# print("c = {} , abs(c) = {}".format(c, abs(c)))
+# print("c = {} , abs(d) = {}".format(d, abs(d)))
+# #절댓갑 = 부호를 제거한 값
+# print("c = {} , int(c) = {}".format(c,int(c)))
+# print("c = {} , float(d) = {}".format(d, float(d)))
+#
+# a = 3
+# b = 4
+#
+# 제곱(power)
+#
+# print(f"a = {a}, pow(a,2) = {pow(a,3)}")
+# print(f"b = {b}, b**2 = {b** 3}")
+#
+# a = "hello world"
+# print(a[:3]) #[시작인덱스:끝인덱스 +1]
+# print(a[::3]) #[시작인덱스]:끝인덱스 + : step] step은 index를 얼마나 증가시킬것이냐
+# print(a[::-1])  #[  :  :-1] 처음부터 끝까지 역순으로 보겠다
+#
+# #문자열 자료형 연산
+# a = "Hello"
+# b = "World"
+# #문자열 + 문자열
+# print(a + '' + b)
+# print(a + ' '+b + ' '*4) #hello world hello world.....
+#
+# #문자열의 길이 반환
+# print(len(a))
+#
+# a = "python"
+# l = [1,2,3,4,5]
+# l[2] = 7
+# print(l)
+# print(a.capitalize())
+# print(a)
+#
+# a = "Hello python"
+# print(a.endswith("thon", 6, 12)) #결과값 = True or false
+# print(a.startswith("Hel",6,12))
+#
+# print(a.isalpha()) #모든게 알파벳일경우 True
+# print(a.isalgit()) #모든게 숫자인경우 True
+# print(a[1].isalnum()) #알파벳 또는 숫자인 경우 True 아니면 False
+# print(a.isupper())
+# print(a.islower())
+#
+# l = ['A',1,2,'D']
+# s2 p str(l)
+# s = ''.join(l)
+# print(f"s2 = {s2}, s2[0] = {s2[1]}")
+#
+#
+#
+# print(a.replace("L", "A",2))# 2번째에 있는 l까지 바뀜
+#
+# a = "HELLO PYTHON"
+# b = '....str.ip.......'
+#
+# print(b.lstrip('.'))
+# print(b.strip('.'))
+# print(b.rstrip('.'))
+
+name = "이지민"
+age = 15
+height = 166
+#formatiing d = 정수 s = 문자열
+print("이름: %s 나이: %d 키: %.1f" %(name, age, height))
+#format 메서드
+print("이름: {} 나이 : {} 키:{}".format(name, age, height))\
+#fstring
+print(f"이름: {name} 나이 : {age} 키: {height}")
