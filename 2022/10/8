@@ -1,0 +1,63 @@
+# def solution(dartResult):
+#     answer = 0
+#     score = []
+#     area = {"S":1, "D":2, "T":3}
+#     for result in dartResult:
+#         if len(score) == 0:
+#             score.append(result)
+#         elif result.isdigit():
+#             if type(score[-1]) == str:
+#                 score.append(score.pop()+result)
+#             else:
+#                 score.append(result)
+#         elif result in area:
+#             score.append(int(score.pop()) ** area[result])
+#         elif result == '*':
+#             if len(score) == 1:
+#                 score.append(int(score.pop())*2)
+#             else:
+#                 num2 = score.pop()
+#                 num1 = score.pop()
+#                 score.append(int(num1) * 2)
+#                 score.append(int(num2) * 2)
+#         elif result == '#':
+#             score.append(int(score.pop())*-1)
+#     answer = sum(score)
+#     return answer
+# d = "1S2D*3T"
+# print(solution(d))
+# 숨어있는 숫자 찾기
+
+# def solution(my_string):
+#     answer = 0
+#     for i in my_string:
+#         if i.isalpha():
+#             my_string = my_string.replace(i,' ')
+#     my_string = my_string.split()
+#     for i in my_string:
+#         answer += int(i)
+#     return answer
+# m = "aAb1B2cC34oOp"
+# print(solution(m))
+
+def solution(polynomial):
+    answer = ''
+    polynomial = polynomial.replace('+', '')
+    p = polynomial.split()
+    constant = 0
+    term1 = []
+    for i in p:
+        if i.isdigit():
+            constant += int(i)
+        else:
+            term1.append(i)
+            
+    term1.sort(key=lambda x : x[-1])
+    result = []
+    for t in term1:
+        if len(result) == 0:
+            result.append(t)
+        elif t[-1] == result[-1][-1]:
+            last = result.pop()
+            if len(t) == 1:
+                t = '1'+t
