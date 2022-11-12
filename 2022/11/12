@@ -1,0 +1,97 @@
+# board = []
+# for i in range(100):
+#     board.append([0]*100)
+# n = int(input())
+# for _ in range(n):
+#     x,y = input().split()
+#     x = int(x)
+#     y = int(y)
+#     #해당자리가 색종이로 덮여있다면 1로 변경
+#     # 그 다음에 개수를 샌다. == 넓이
+#     for i in range(x, x+10):
+#          for j in range(y, y+10):
+#              board[i][j] = 1
+# answer = 0
+# for b in board:
+#     answer += b.count(1)
+# print(answer)
+
+# def sum_nums():
+#     answer = 0
+#     print(nums)
+#     for i in nums:
+#         answer += 1
+#     return answer
+# nums = []
+# n = int(input())
+# for _ in range(n):
+#     x = int(input())
+#     nums.append(x)
+# print(sum_nums(nums))
+
+# def print_Hi_or_string(string):
+#     pass
+#
+# print()
+
+# #pop() : 리스트에서 값을 추출해주는 함 수
+# a = [5,6,7,8]
+# # a.pop(2)
+# # print(a) -> 7
+# # print(a.pop())
+#
+# def my_pop (_list, index = -1):
+#     result = _list[index]
+#     del _list[index]
+#     return result, _list
+# #리턴값은 항상 1개이다
+# #pop과 동일한 동작을 하는 함수 my_pop을 구현하시오 단 실행방식은 my_pop(리스트, 인덱스번호)이다
+# #인덱스 번호에 값을 넣지 않을 경우 자동으로 먀ㅏ지막 원소값을 추출하면 된다
+#
+# print(my_pop(a,2))
+# print(my_pop(a))
+
+# def my_replace(string, old, new, count):
+#     if count == 0:
+#         count - len(string)
+#
+#     new_string = ""
+#     for i in string:
+#         if count:
+#             if i == old:
+#                 new_string += new
+#                 count -= 1
+#             else:
+#                 new_string += i
+#         else:
+#             new_string += i
+#     return new_string
+
+# a = "Python"
+# print(a.replace('P', 'B'))
+# b = 'BBBBBBB'
+# print(b.replace('B', 'A', 3))
+# c = 'CCCCCC'
+# print(my_replace(c, 'C', "A"))
+# print(my_replace(c, 'C', "A", 3))
+
+def isPrime(n):
+    for i in range(2,n):
+        if n % i == 0:
+            return False
+    return True
+
+
+
+
+
+
+
+def solution(nums):
+    cnt = 0
+
+    if isPrime(숫자 세개를 더한 값):
+        cnt += 1
+    return cnt
+nums = [1,2,3,4]
+print(solution(nums))
