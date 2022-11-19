@@ -1,0 +1,56 @@
+# def isPrime(n):
+#     for i in range(2,n):
+#         if n % i == 0:
+#             return False
+#     return True
+# def solution(nums):
+#     cnt = 0
+#     a = len(nums)
+#     for i in range(a):
+#         for j in range(i+1,a):
+#             for k in range(j +1, len(nums)):
+#                 print(i, j, k)
+#                 if isPrime(nums[i] + nums[j] + nums[k]):
+#                     cnt += 1
+#     return cnt
+# nums = [1,2,7,6,4]
+# print(solution(nums))
+
+
+# def solution(number):
+#     cnt = 0
+#     a = len(number)
+#     for i in range(a):
+#         for j in range(i+1,a):
+#             for k in range(j +1, len(number)):
+#                 print([i, j, k])
+#                 if number[i] + number[j] + number[k] == 0:
+#                     cnt += 1
+#     return cnt
+# number = [-2, 3, 0, 2, -5]
+# print(solution(number))
+
+
+# def solution(a, b, n):
+#     total = 0
+#     remain = 0
+#     while n >= a:
+#         remain = n % a
+#         n = n // a*b
+#         total += n
+#         n += remain
+#
+#     return total
+# a = 2
+# b = 1
+# n = 20
+# print(solution(a, b, n))
+
+def solution(babbling):
+    cnt = 0
+    can = ["aya", "ye", "woo", "ma"]
+    for i in babbling:
+        if i in can:
+            cnt += 1
+    return cnt
+    print(solution(babbling))
