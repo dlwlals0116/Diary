@@ -1,0 +1,30 @@
+# def solution(babbling):
+#     cnt = 0
+#     can = ["aya", "ye", "woo", "ma"]
+#     for i in babbling:
+#         for j in can:
+#             if j in i:
+#                 i = i.replace(j , '1' , 1)
+#         if i.isdigit():
+#             cnt += 1
+#     return cnt
+# babbling = ["aya", "yee", "u", "maa", "wyeoo"]
+# print(solution(babbling))
+
+
+def fibo(n):
+    if n == 1:
+        return  0
+    elif n == 2:
+        return 1
+    else:
+        return fibo(n-2) + fibo(n-1)
+print(fibo())
+
+
+def fibo(n):
+    if n == 1:
+        return  1
+    else:
+        return fibo(n-1)*2 + 1
+print(fibo(2))
