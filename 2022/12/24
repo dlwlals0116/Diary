@@ -1,0 +1,95 @@
+# def solution(food):
+#     a = []
+#     b = []
+#     for j in range(1, len(food)):
+#         b.append(str(j)*food[j]//2)
+#     for i in range(len(food)-1,0, -1):
+#         a.append(str(i)*food[i]//2)
+#     b = "".join(b)
+#     a = "".join(a)
+#     answer = b + '0' +a
+#     return answer
+# food = [1, 3, 4, 6]
+# print(solution(food))
+
+#실패율 (42889)
+# def solution(N, stages):
+#     answer = []
+#     return answer
+#
+# N = 5
+# stages = [2, 1, 2, 6, 2, 4, 3, 3]
+
+#과일장수(135808)
+# def solution(k, m, score):
+#     c = []
+#     answer = 0
+#     score.sort(reverse=False)
+#     a = len(score)//m
+#     for i in score:
+#         for j in range(1, m):
+#             c.append(score[j])
+#             if len(c) == 3:
+#                 answer += min(c)*m
+#     return answer
+# k = 4
+# m = 3
+# score = [4, 1, 2, 2, 4, 4, 4, 4, 1, 2, 4, 2]
+# print(solution(k, m, score))
+#선생님 답
+# def solution(k,m,scroe):
+#     score.sort()
+#     while len(score) % m:
+#         del score[0]
+#     answer = 0
+#     for i in range( 0, len(score), m):
+#         answer += m * score[i]
+#     return answer
+# k, m, score = 3,4,[1, 2, 3, 1, 2, 3, 1]
+# print(solution(k, m, score))
+
+# 부분문자열
+# def solution(t, p):
+#     answer = 0
+#     b = []
+#     g = "0"
+#     for i in range(0,len(t)-len(p)):
+#         g += t[i]
+#         for d in range(1, len(p)):
+#             print(d)
+#             g += t[i+d-1]
+#         b.append(g)
+#     for j in b:
+#         if int(j) < int(p):
+#             answer += 1
+#     return answer
+# t = "500220839878"
+# p = "7"
+# print(solution(t,p))
+
+#선생님 풀이
+# def solution(t,p):
+#     length = len(p)
+#     cnt = 0
+#     for i in range(len(t)-length-1):
+#         if int(t[i:i+length]) <= int(p):
+#             cnt +=1
+#     return cnt
+# t, p = "3149592", "271"
+
+#위험지역
+def solution(board):
+     a = []
+     for i in board:
+         if i == 1:
+             
+             
+
+    answer = 0
+    return answer
+
+board = [[0, 0, 0, 0, 0],
+         [0, 0, 0, 0, 0],
+         [0, 0, 0, 0, 0],
+         [0, 0, 1, 0, 0],
+         [0, 0, 0, 0, 0]]
