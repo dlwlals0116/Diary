@@ -104,4 +104,21 @@ board = [[0, 0, 0, 0, 0],
     return answer
 s = "AB"
 n = "1"  12926
-         
+
+def solution(board):
+    a,b,cnt = [],[],0
+    for i in board:
+        if i == 1:  #인덱스 찾기
+            
+    for j in b:
+        if j == 1:
+            cnt+= 1
+answer = len(board)*len(board) - cnt
+return answer
+
+board = [[0, 0, 0, 0, 0],
+         [0, 0, 0, 0, 0],
+         [0, 0, 0, 0, 0],
+         [0, 0, 1, 0, 0],
+         [0, 0, 0, 0, 0]]
+
