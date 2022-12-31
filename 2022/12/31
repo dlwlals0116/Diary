@@ -1,0 +1,101 @@
+# 안전지대(내풀이)120866
+# def solution(board):
+#     c = len(board)*len(board)
+#     a, b, cnt = [], board, 0
+#     for i in range(len(board)):
+#         for g in range(len(board)):
+#             if board[i][g] == 1:
+#                 b[i][g] == 1
+#                 print(i)
+#                 print(g)
+#                 for v in range(-1, 2):
+#                     for e in range(-1,2):
+#                         b[i+v][g+e] == 1
+#                         print(b[i+v][g+e])
+#
+#
+#     for j in b:
+#         if j == 1:
+#             cnt += 1
+#     answer = c - cnt
+#     return answer
+#
+# board = [[0, 0, 0, 0, 0],
+#          [0, 0, 0, 0, 0],
+#          [0, 0, 0, 0, 0],
+#          [0, 0, 1, 0, 0],
+#          [0, 0, 0, 0, 0]]
+# print(solution(board))
+# #선생님 풀이
+# def solution(board):
+#     dangers = []
+#     for i in range(len(board)):
+#         for j in range(len(board[i])):
+#             if board[i][j] == i:
+#                 dangers.append((i,j))
+#                 if i -1 >= 0 and j-1 >= 0:
+#                     dangers.append(i-1, j-1)
+#                 if i -1 >= 0:
+#                     dangers.append(i-1,j )
+#                 if i -1 >= 0 and j+1 >= 0:
+#                     dangers.append(i-1, j+1)
+#                 if i -1 < len(board):
+#                     dangers.append(i, j+1)
+#                 if i -1 < len(board)and j+1 <len(board):
+#                     dangers.append(i+1, j+1)
+#                 if i -1 < len(board):
+#                     dangers.append(i+1, j)
+#                 if i -1 < len(board)and j-1 >= 0:
+#                     dangers.append(i+1, j-1)
+#                 if i -1 < 0:
+#                     dangers.append(i-1, j-1)
+#                 #대충 이렇게 하나씩 봐준다!
+#명예의전당(내풀이)138477
+# def solution(k, score):
+#     answer, a = [], []
+#     while len(score) < k:
+#         k -= 1
+#     for j in range(k):
+#         a.append(score[j])
+#         a.sort()
+#         answer.append(a[0])
+#     for i in range(k, len(score)):
+#         a.append(score[i])
+#         a.sort()
+#         answer.append(a[len(a)-k])
+#     return answer
+# score = [0, 300, 40, 300, 20, 70, 150, 50, 500, 1000]
+# k = 4
+# print(solution(k,score))
+#특이한 정렬 120880 선생님 한줄풀이
+# def solution(numlist, n:)
+#     numlist.sort(key=lambda x:(abs(n-x), -x))
+#     return numlist
+#폰켓몬1845
+# def solution(nums):
+#     answer = 0
+#     a =
+#     return answer
+# nums = [3,3,3,2,2,4]
+
+#카펫 42842
+def solution(brown, yellow):
+    answer,a,b,c,d,e = [],brown+yellow, [], 0, 0, []
+    for i in range(a+1):
+        for j in range(a+1, 0, -1):
+            if i*j == a:
+                b.append((i,j))
+    for h in b:
+        e.append((h, h[0]-h[1]))
+    print(e)
+    for t in e:
+        if t[1] < 0:
+            e.remove(t)
+    e.sort()
+    print(e)
+
+
+    return answer
+brown =10
+yellow = 2
+print(solution(brown,yellow))
