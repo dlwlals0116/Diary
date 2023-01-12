@@ -1,0 +1,63 @@
+# 12931
+# def solution(n):
+#     a,c,answer = [],str(n),0
+#     for i in range(len(c)):
+#         a.append(c[i])
+#     for j in a:
+#         answer += int(j)
+#     return answer
+# n= 123
+# print(solution(n))
+#
+#12932
+# def solution(n):
+#     answer = []
+#     for i in range(len(str(n))):
+#         a = str(n)[i]
+#         answer.append(int(a))
+#     answer.reverse()
+#     return answer
+# n= 12345
+# print(solution(n))
+#12934
+# def solution(n):
+#     for i in range(n//2+1):
+#         if i**2 == n:
+#             return (i+1)*(i+1)
+#     return -1
+# n = 3
+# print(solution(n))
+#120907
+# def calculate(cal,result):
+#     a,b,c = cal.split()
+#     if b == "-":
+#         if int(a) - int(c) == int(result):
+#             return True
+#         else:
+#             return False
+#     if str(b) =="+":
+#         if int(a) + int(c) == int(result):
+#             return True
+#         else:
+#             return False
+# def solution(quiz):
+#     answer = []
+#     for q in quiz:
+#         cal, result = q.split(' = ')
+#         if calculate(cal, result):
+#             answer.append('O')
+#         else:
+#             answer.append("X")
+#     return answer
+# quiz = ["19 - 6 = 13", "5 + 66 = 71", "5 - 15 = 63", "3 - 1 = 2"]
+# print(  solution(quiz))
+# class test:
+#     def __init__(self,bb):
+#         self.aa = bb
+#     def print_aa(self):
+#         print(self.aa)
+# 
+# t = test(123)
+# r = test(456)
+# print(t.aa)
+# print(r.aa)
