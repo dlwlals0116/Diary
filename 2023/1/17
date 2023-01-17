@@ -1,14 +1,65 @@
-def solution(today, terms, privacies):
-    a = []
-    for i in range(len(privacies)):
-        for j in terms:
-            if j[0] == privacies[i][11]:
-                privacies[i][11] = j[2]
-    print(privacies)
-    answer = ["d"]
+# def solution(today, terms, privacies):
+#     a,b,c,answer= [],[],[],[]
+#     for i in range(len(privacies)):
+#         for j in terms:
+#             if j[0] == privacies[i][11]:
+#                 j = j.split()
+#                 privacies[i] = privacies[i].replace(privacies[i][11],j[1])
+#     for x in privacies:
+#         y= x.split()
+#         x,z = y[0],int(y[1])
+#         year, month, day = map(int,x.split("."))
+#         day -= 1
+#         if day == 0:
+#             day,month = 28,month -1
+#         month += z
+#         if month > 12:
+#             month = month%12
+#             year += month//2
+#         a.append([year,month,day])
+#     d,e,f = map(int,today.split("."))
+#     b = a.copy()
+#     b.append([d,e,f])
+#     b.sort()
+#     ind = b.index([d,e,f])
+#     for k in range(ind):
+#         c.append(b[k])
+#     for id in c:
+#         answer.append(a.index(id)+1)
+#     answer.sort()
+#     return answer
+# today = "2022.05.19"
+# terms = ["A 6", "B 12", "C 3"]
+# privacies = ["2021.05.02 A", "2021.07.01 B", "2022.02.19 C", "2022.02.20 C"]
+# print(solution(today,terms,privacies))
+class country:
+    def __init__(self,name):
+        self.name = name
+        self.manager = None
+        self.players =[]
 
-    return answer
-today = "2022.05.19"
-terms = ["A 6", "B 12", "C 3"]
-privacies = ["2021.05.02 A", "2021.07.01 B", "2022.02.19 C", "2022.02.20 C"]
-print(solution(today,terms,privacies))
+    def introduce(self):
+        print("이 클래스는 국가를 의미하는 클래스입니다")
+class Korea(country):
+    def 애국가(self):
+        print("동해물과")
+    #메서드 오버로딩(over loading
+    def introduce(self):
+        print(f"이클래스는 {self.name}을 의미하는 클래스입니다.")
+k = Korea("대한민국")
+k.애국가()
+
+korea = Korea("대한민국") #부모클래스에서 생성된 변수나 기능을 그대로 사용할 수 있다
+k.introduce()
+
+class mystr(str):
+    def __init__(self,string):
+        self.string = string
+    def __add__(self, other):
+        return self.string + '' + other
+
+m = mystr("Hello")
+n = "world"
+
+숙제= 프로그래머스 0LV 평행
+위에 문제 다시 제대로 풀어오기
