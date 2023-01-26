@@ -18,3 +18,28 @@
 # s = "()))"
 # print(solution(s))
 #올바른괄호 스택X버전 만들기
+
+#트럭
+def solution(bridge_length, weight, truck_weights):
+    on_truck, on_weight, seconds = [],0,1
+    on_weight += truck_weights[0]
+    on_truck.append([truck_weights.pop(), seconds+bridge_length])
+    while True:
+        if seconds >= on_truck[0][1]:
+            truck = on_truck.pop(0)
+            on_weight -= truck[0]
+        #다리에 진입대기중인 트럭이 있다면
+        if truck_weights:
+            #다리위에 트럭을 올린다.
+            if on_weight + truck_weights[0] <= weight:
+                on_weight += truck_weights[0]
+                on_truck.append([truck_weights.pop(0), seconds +bridge_length])
+            #다리위에 트럭이 없다면 모든 트럭이 지나간 것이므로 break
+            if not on_truck:
+                break
+            seconds +=1
+        return seconds
+truck_weights = [7,4,5,6]
+bridge_length = 2
+weight = 10
+print(solution(bridge_length,weight,truck_weights))
