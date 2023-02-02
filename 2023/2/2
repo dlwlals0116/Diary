@@ -1,0 +1,22 @@
+class Node:
+    def __init__(self,value,left,right):
+        self.value = value
+        self.left = left
+        self.right = right
+        self.rear = Node
+        self.front = Node
+
+class Deque:
+    def __init__(self):
+        self.rear = None
+        self.front = None
+
+    def insert_rear(self,data):
+        if self.rear == None:
+            self.insert
+
+    def insert_front(self,data):
+        pass
+    def 
+#옹알이 숙제 2
+1. 디큐 완성
