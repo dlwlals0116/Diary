@@ -11,8 +11,8 @@ class Deque:
         self.front = None
 
     def insert_rear(self,data):
-        if self.rear =
-
+        if self.rear == None:
+            
     def insert_front(self,data):
         pass
     def remove_rear(self,data):
