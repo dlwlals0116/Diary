@@ -1,0 +1,64 @@
+# class Node:
+#     def __init__(self, value, left, right):
+#         self.value = value
+#         self.left = left
+#         self.right = right
+#         self.rear = Node
+#         self.front = Node
+#
+#
+# class Deque:
+#     def __init__(self):
+#         self.rear = None
+#         self.front = None
+#         Node = self.Node
+#     def insert_rear(self, data):
+#         if self.rear == None:
+#
+#     def insert_front(self, data):
+#         pass
+#
+#     def remove_rear(self, data):
+#         pass
+#
+#     def remove_front(self, data):
+#         pass
+#
+#     def reverse(self):
+#         pass
+
+#둘만의 암호
+# def solution(s, skip, index):
+#     answer,alphabet = '',"abcdefghijklmnopqrstuvwxyz"
+#     for i in skip:
+#         alphabet = alphabet.replace(i,"")
+#     for j in range(len(s)):
+#         answer += alphabet[(alphabet.find(s[j])+index)%len(alphabet)]
+#     return answer
+# s= "z"
+# skip = "abcdefghij"
+# index = 20
+# print(solution(s,skip, index))
+
+#약수의 합
+# def solution(n):
+#     answer = 0
+#     for i in range(len(n)):
+#         for j in range(len(n),0,-1):
+#
+#     return answer
+# n = 12
+#백준 올림픽
+nations, want = input().split()
+list = []
+for i in range(int(nations)):
+    b,c,d,e = input().split()
+    list.append(([c,d,e],b))
+list.sort(reverse=True)
+print(list)
+for i in range(len(list)):
+    if int(want)-1== int(list[i][1]):
+        if list[i] == list[i-1]:
+            print(i)
+        else:
+            print(i+1)
