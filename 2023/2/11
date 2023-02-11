@@ -1,0 +1,66 @@
+#옹알이 2
+#def solution(babbling):
+#     answer,can = 0,["aya", "ye", "woo", "ma"]
+#     for i in babbling:
+#         for j in range(len(can)):
+#             if can[j] in i:
+#                 i = i.replace(can[j] , str(j))
+#                 #i값 = ex)ayayaye라면, i = 001이 나온다
+#         if i.isdigit():  #만약 i가 모두 숫자라면, == 만약 i가 모두 can안의 말로 발음이 된다면
+#             same = 0    #연속된 같은값인지 아닌지를 판별하기 위해 만든 변수
+#             for x in range(1,len(i)):
+#                 if i[x] == i[x - 1]:
+#                     same = 1 #연속된 같은값이라면 same이 켜진다
+#             if same == 0:  #same이 0이다 == 앞뒤로 같은게 없다
+#                 answer += 1  #answer이 1 늘어난다
+#     return answer
+
+# def solution(s):
+#     answer = []
+#     for i in range(len(s)-1,0,-1):
+#         print(i)
+#         for j in range(1,i):
+#             if s[i] == s[i-j]:
+#                 answer.append(i-j)
+#                 break
+#             answer.append(-1)
+#     answer.reverse()
+#     return answer
+# s = "banana"
+# print(solution(s))
+
+
+#백준 명령프롬프트
+# import sys
+# a,answer,same = [], '', 0
+# for _ in range(int(sys.stdin.readline())):
+#     a.append(sys.stdin.readline())
+# for i in range(len(a[0])):
+#     for j in range(len(a)):
+#         if a[0][i] == a[0+j][i]:
+#             same = 1
+#         else:
+#             answer += "?"
+#             same = 0
+#             break
+#     if same == 1:
+#         answer += a[0][i]
+# print(answer)
+#백준 1051
+x,y = map(int,input().split())
+rectangle = []
+for _ in range(x):
+    n = input()
+    rectangle.append(list(n))
+for i in range(min([x,y])-1,-1,-1):
+    for a in range(max([x,y])-i):
+        for b in range(min([x,y])-i):
+            if rectangle[b][a] == rectangle[b+i][a] == rectangle[b][a+i] == rectangle[b+i][a+i]:
+                print((i+1)**2)
+                exit()
+#[['4', '2', '1', '0', '1'],
+# ['2', '2', '1', '0', '0'],
+# ['2', '2', '1', '0', '1']]
+# [0,0][0,2][2,0][2,2]
+# [0,1][0,3][2,1][2,3]
+# [0,2][0,4][2,2][2,4]
