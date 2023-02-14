@@ -1,0 +1,73 @@
+# 백준 9012 내가푼것
+# import sys
+# n = int(sys.stdin.readline())
+# for _ in range(n):
+#     a = sys.stdin.readline()
+#     if a[0] == ")":
+#             print("NO")
+#             continue
+#     elif a[-1] == "(":
+#         print("NO")
+#         continue
+#     copy = a
+#     for i in range(len(a)):
+#         if "(" in copy:
+#             copy.replace("(", "1", 1)
+#             if ")" in copy:
+#                 copy.replace(")", "1", 1)
+#     print(copy)
+#     if copy.isdigit():
+#         print("YES")
+#         continue
+#     else:
+#         print("NO")
+#         continue
+
+
+#백준 9012
+# def s(a):
+#     stack = []
+#     if a[0] == ")":
+#         return "NO"
+#     for i in range(len(a)):
+#         if len(stack) == 0:
+#             stack.append(a[i])
+#         elif stack[-1] == "(" and a[i] == ")":
+#             stack.pop()
+#         else:
+#             stack.append(a[i])
+#     if len(stack) == 0:
+#         return "YES"
+#     else:
+#         return "NO"
+# n= int(input())
+# for _ in range(n):
+#     a = input()
+#     print(s(a))
+#백준 0나오면 지우는 문제
+# def s(a):
+#     stack,answer = [],0
+#     for i in range(len(a)):
+#         if len(stack) == 0:
+#             stack.append(a[i])
+#         elif a[i] == 0:
+#             stack.pop()
+#         else:
+#             stack.append(a[i])
+#     for i in stack:
+#         answer += i
+#     return answer
+# n,a = int(input()),[]
+# for _ in range(n):
+#     a.append(int(input()))
+# print(s(a))
+#백준(토너먼트 스타)
+def tournament(n,jimin,hansu):
+    round,cnt,= 0,0
+    for i in range(n):
+        
+    for i in range(n):
+        if (jimin >= round//2 and hansu >= round//2) or (jimin <= round//2 and hansu <= round//2):
+            round = round//2
+            cnt += 1
+        else:
