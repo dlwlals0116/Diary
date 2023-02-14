@@ -45,11 +45,25 @@
 #                 print(dq[-1])
 #백준 9012
 import sys
-input = sys.stdin.readline()
-n = int(input)
+n = int(sys.stdin.readline())
 for _ in range(n):
-    stack = []
-    a = input()
+    a = sys.stdin.readline()
+    if a[0] == ")":
+            print("NO")
+            continue
+    elif a[-1] == "(":
+        print("NO")
+        continue
+    copy = a
     for i in range(len(a)):
-        if a[i] == ")":
-            stack.append()
+        if "(" in copy:
+            copy.replace("(", "1", 1)
+            if ")" in copy:
+                copy.replace(")", "1", 1)
+    print(copy)
+    if copy.isdigit():
+        print("YES")
+        continue
+    else:
+        print("NO")
+        continue
