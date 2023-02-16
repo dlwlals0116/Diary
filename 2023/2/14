@@ -62,12 +62,20 @@
 #     a.append(int(input()))
 # print(s(a))
 #백준(토너먼트 스타)
-def tournament(n,jimin,hansu):
-    round,cnt,= 0,0
-    for i in range(n):
-        
-    for i in range(n):
-        if (jimin >= round//2 and hansu >= round//2) or (jimin <= round//2 and hansu <= round//2):
-            round = round//2
-            cnt += 1
+def tournament(n, jimin, hansu):
+    round, cnt, = 0, 0
+    while True:
+        if jimin % 2 ==0:
+            jimin = jimin//2
         else:
+            jimin = (jimin +1)// 2
+        if hansu % 2 ==0:
+            hansu = hansu//2
+        else:
+            hansu = (hansu +1)// 2
+        cnt += 1
+        if hansu == jimin:
+            return cnt
+n,jimin,hansu = map(int,input().split())
+print(tournament(n,jimin,hansu))
+
