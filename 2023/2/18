@@ -1,0 +1,104 @@
+# 백준 1051
+# x,y = map(int,input().split())
+# rectangle = []
+#
+# for _ in range(x):
+#     n = input()
+#     rectangle.append(list(n))
+#
+# for i in range(min([x,y])-1,-1,-1):
+#     for a in range(y-i):
+#         for b in range(x-i):
+#             if rectangle[b][a] == rectangle[b+i][a] == rectangle[b][a+i] == rectangle[b+i][a+i]:
+#                 print((i+1)**2)
+#                 exit()
+# #[['4', '2', '1', '0', '1'],
+# # ['2', '2', '1', '0', '0'],
+# # ['2', '2', '1', '0', '1']]
+# # [0,0][0,2][2,0][2,2]
+# # [0,1][0,3][2,1][2,3]
+# # [0,2][0,4][2,2][2,4]
+#백준 2587
+# a = []
+# for i in range(5):
+#     a.append(int(input()))
+# a.sort()
+# n = 0
+# for i in a:
+#     n += i
+# print(n//5)
+# print(a[2])
+#백준 1110(미완성)
+# n = str(input())
+# if len(n) == 2:
+#     copy, cnt = n, 0
+#     while True:
+#         a,b = n[0],n[1]
+#         tmp = str(int(n[0])+ int(n[1]))
+#         n = str(b)+str(tmp[-1])
+#         cnt += 1
+#         if int(n) == copy:
+#             print(cnt)
+#             break
+# elif len(n) == 1:
+#     copy, cnt = n*10, 0
+#     while True:
+#         n = str(int(n)*10)
+#         a, b = n[0], n[1]
+#         tmp = str(int(n[0]) + int(n[1]))
+#         n = str(b) + str(tmp[-1])
+#         cnt += 1
+#         if int(n) == copy:
+#             print(cnt)
+#             break
+#백준 1009
+# for _ in range(int(input())):
+#     a,b = map(str,input().split())
+#     b = int(b)
+#     if a[-1]== "1":
+#         print(1)
+#     elif a[-1]=="2":
+#         list = [2,4,8,6]
+#         print(list[b%4-1])
+#     elif a[-1]=="3":
+#         list = [3, 9, 7, 1]
+#         print(list[b%4-1])
+#     elif a[-1]=="4":
+#         list = [4,6]
+#         print(list[b%2-1])
+#     elif a[-1]=="5":
+#         print(5)
+#     elif a[-1] == "6":
+#         print(6)
+#     elif a[-1] =="7":
+#         list = [7,9,3,1]
+#         print(list[b % 4-1])
+#     elif a[-1] == "8":
+#         list = [8,4,2,6]
+#         print(list[b % 4-1])
+#     elif a[-1] == "9":
+#         list = [9,1]
+#         print(list[b%2-1])
+#     elif a[-1] == "0":
+#         print(10)
+# 백준 1330
+# a,b = map(int,input().split())
+# if a>b:
+#     print(">")
+# elif a<b:
+#     print("<")
+# else:
+#     print("==")
+N, taesu ,P = map(int,input().split())
+if N ==0:
+    print(1)
+else:
+    score_board = list(map(int,input().split()))
+    if score_board[-1] == taesu:
+        print(-1)
+        exit()
+    for i in range(min([len(score_board),P])):
+        if score_board[i] <= taesu:
+            print(i+1)
+            exit()
+    print(-1)
