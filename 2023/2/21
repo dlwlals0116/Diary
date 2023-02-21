@@ -1,0 +1,19 @@
+list = []
+def num(arr, n , m):
+    if len(list) == m:
+        copy1,copy2 = list.copy(),list.copy()
+        copy2.sort()
+        if copy2 == copy1:
+            for i in list:
+                print(i, end=' ')
+            print()
+        return
+    else:
+        for i in range(1,n+1):
+            if i not in list:
+                list.append(i)
+                num(arr-1, n,m)
+                list.pop()
+n,m = map(int,input().split())
+arr = 1
+num(arr,n,m)
