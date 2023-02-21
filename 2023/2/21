@@ -1,19 +1,117 @@
-list = []
-def num(arr, n , m):
-    if len(list) == m:
-        copy1,copy2 = list.copy(),list.copy()
-        copy2.sort()
-        if copy2 == copy1:
-            for i in list:
-                print(i, end=' ')
-            print()
-        return
-    else:
-        for i in range(1,n+1):
-            if i not in list:
-                list.append(i)
-                num(arr-1, n,m)
-                list.pop()
-n,m = map(int,input().split())
-arr = 1
-num(arr,n,m)
+# 내가만든 2번
+# list = []
+# def num(arr, n , m):
+#     if len(list) == m:
+#         copy1,copy2 = list.copy(),list.copy()
+#         copy2.sort()
+#         if copy2 == copy1:
+#             for i in list:
+#                 print(i, end=' ')
+#             print()
+#         return
+#     else:
+#         for i in range(1,n+1):
+#             if i not in list:
+#                 list.append(i)
+#                 num(arr-1, n,m)
+#                 list.pop()
+# n,m = map(int,input().split())
+# arr = 1
+# num(arr,n,m)
+# 새로만든버전 4번
+# def check(list):
+#     for i in range(len(list)-1):
+#         if list[i] > list[i+1]:
+#             return False
+#     return True
+# list = []
+# n,m = map(int,input().split())
+# def num(arr):
+#     if len(list) == m:
+#         if check(list) == True:
+#             for i in list:
+#                 print(i, end=' ')
+#             print()
+#         return
+#     for i in range(1,n+1):
+#
+#         list.append(i)
+#         num(arr-1)
+#         list.pop()
+# num(arr=1)
+#2번 변형버전
+# list = []
+# n,m = map(int,input().split())
+# def num(arr):
+#     if len(list) == m:
+#         copy1,copy2 = list.copy(),list.copy()
+#         copy2.sort()
+#         if copy2 == copy1:
+#             for i in list:
+#                 print(i, end=' ')
+#             print()
+#         return
+#     else:
+#         for i in range(1,n+1):
+#             list.append(i)
+#             num(arr-1)
+#             list.pop()
+# num(arr=1)
+#선생님버전 #2
+# list = []
+# n,m = map(int,input().split())
+# def num(arr):
+#     if len(list) == m:
+#         for i in list:
+#             print(i, end=' ')
+#         print()
+#         return
+#     else:
+#         for i in range(1,n+1):
+#             if len(list) == 0:
+#                 list.append(i)
+#                 num(arr +1)
+#                 list.pop()
+#             elif i not in list and list[-1] < i:
+#                 list.append(i)
+#                 num(arr+1)
+#                 list.pop()
+# num(arr=1)
+#선생님 4번
+# list = []
+# n,m = map(int,input().split())
+# def num(arr):
+#     if len(list) == m:
+#         for i in list:
+#             print(i, end=' ')
+#         print()
+#         return
+#     else:
+#         for i in range(1,n+1):
+#             if len(list) == 0:
+#                 list.append(i)
+#                 num(arr +1)
+#                 list.pop()
+#             elif list[-1] <= i:
+#                 list.append(i)
+#                 num(arr+1)
+#                 list.pop()
+# num(arr=1)
+#2부터 120까지 수들중에서 소수는 몇개이고 누구누구인가?
+# #arr[x] == 정수 x가 소수인지 아닌지의 값이 들어있다.
+#2부터 120까지 숫자를 증가시키면서 2의 배수들을 False로 변경한다.
+#2의 배수들을 다 봤으면 그다음 3을 제외한 3의 배수들을 False로 변경한다.
+#이미 False인 애들은 배수를 구하지 않는다.
+n = int(input()) #n까지의 수들중 소수가 몇개인지를 구하고, 소수리스트도 출력한다.
+cnt = 0
+arr = [True]*(n+1)
+for i in range(2,int(len(arr)**0.5)):
+    if arr[i] == True:
+        for j in range(i+i,len(arr),i):
+            arr[j] = False
+for i in range(2,len(arr)):
+    if arr[i] == True:
+        print(i)
+print(f"소수는 {arr.count(True)}개 있습니다")
+
+#time. -- 이 있다
