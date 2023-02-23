@@ -1,0 +1,18 @@
+#n과 m 5
+n,m = map(int, input().split())
+arr = list(map(int,input().split()))
+arr.sort()
+basket = []
+def numbers(a):
+    if len(basket) == m:
+        for i in basket:
+            print(i,end=' ')
+        print()
+        return
+    else:
+        for i in arr:
+            if i not in basket:
+                basket.append(i)
+                numbers(a-1)
+                basket.pop()
+numbers(a=1)
