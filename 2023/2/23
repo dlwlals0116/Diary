@@ -16,3 +16,18 @@ def numbers(a):
                 numbers(a-1)
                 basket.pop()
 numbers(a=1)
+def DFS(numbers, target,result,idx,op):
+    global cnt
+    result += numbers[idx]*op
+    if idx == len(numbers):
+        if result == target:
+            cnt+=1
+        return
+def solution(numbers, target):
+    global cnt
+    DFS(numbers, target,0,0,-1)   #다음계산을 -로
+    DFS(numbers, target,0,0,+1)   #다음계산을 +로
+    return cnt
+numbers = [1,1,1,1,1]
+target = 3
+print(solution(numbers,target))
