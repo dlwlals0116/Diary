@@ -1,0 +1,42 @@
+# N, taesu ,P = map(int,input().split())
+# if N ==0:    #N이 0이면
+#     print(1)
+#
+# else:
+#     score_board = list(map(int,input().split()))
+#     if len(score_board) < P:               #score_board와 taesu를 비교하기 위해서 두개의 경우를 만듬
+#         for i in range(len(score_board)):
+#             if score_board[i] <= taesu:
+#                 print(i+1)
+#                 exit()
+#         print(len(score_board)+1)
+#
+#     else:
+#         if score_board[-1] == taesu:   #스코어보드의 마지막이 태수와 같으면 -1
+#             print(-1)
+#
+#         else:
+#             for i in range(P):
+#                 if score_board[i] <= taesu:
+#                     print(i+1)
+#                     exit()
+#             print(-1)
+# #base진수 출력
+# def myint(x,base):
+#     answer = 0
+#     x = x[::-1]
+#     for i in range(len(x)):
+#         answer += int(x[i]) *(base ** i)
+#     return answer
+# print(myint('1010',2))
+# 16진수
+# def myint(x,base):
+#     hexa = {'A':10, 'B':11, 'C':12, 'D':13, 'E':14, 'F':15}
+#     answer = 0
+#     x = x[::-1]
+#     for i in range(len(x)):
+#         if x[i].isalpha():
+#             answer += hexa[x[i]] * (base**i)
+#         answer += int(x[i]) *(base ** i)
+#     return answer
+# print(myint('1010',2))
