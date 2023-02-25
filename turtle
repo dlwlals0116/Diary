@@ -1,0 +1,9 @@
+# #거북이그림
+# import turtle as t
+# t.shape('turtle')
+# for _ in range(4):
+#     t.fd(100)
+#     t.right(90)
+# t.color('orange')
+#
+# t.mainloop()
