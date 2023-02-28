@@ -1,0 +1,46 @@
+# 타겟넘버
+# cnt = 0
+# def DFS(numbers, target,result,idx,op):
+#     global cnt
+#     result += numbers[idx]*op
+#     if idx == len(numbers)-1:
+#         if result == target:
+#             cnt+=1
+#         return
+#     DFS(numbers,target,result,idx+1,+1)
+#     DFS(numbers, target, result, idx + 1, -1)
+# def solution(numbers, target):
+#     global cnt
+#     DFS(numbers, target,0,0,-1)   #다음계산을 -로
+#     DFS(numbers, target,0,0,+1)   #다음계산을 +로
+#     return cnt
+# numbers = [4, 1, 2, 1]
+# target = 4
+# print(solution(numbers,target))
+#게임 내 거리구하기
+# from collections import deque
+# def BFS(maps):
+#     row = len(maps)
+#     col = len(maps[0])
+#     goal = [row-1,col-1]
+#     visit = [[False for _ in range(col)]for _ in range(row)]
+#     visit[0][0] = True
+#     que = deque()
+#     que.append([1,[0,0]])
+#     offset = [[0,1],[1,0],[-1,0],[0,-1]]
+#     while que:
+#         cnt,pos = que.popleft()
+#         if pos == goal:
+#             return cnt
+#         x,y = pos
+#         for ox,oy in offset:
+#             nx = x+ox
+#             ny = y+oy
+#             if nx<0 or ny < 0 or nx >= row or ny >= col:
+#                 continue
+#             if visit[nx][ny] == False and maps[nx][ny] == 1:
+#                 que.append([cnt+1,[nx,ny]])
+#                 visit[nx][ny] = True
+#     return -1
+# def solution(maps):
+#     return BFS(maps)
