@@ -1,0 +1,26 @@
+import queue
+def solution(n, garden):
+	answer = 0
+	q = queue.Queue()
+	dx = [-1,1,0,0]
+	dy = [0,0,-1,1]
+
+	for i in range(n):
+		for j in range(n):
+			if garden[i][j]==1:
+				q.put((i,j,0))
+	while q.empty() == False:
+		x,y,day = q.get()
+		for i in range(4):
+			nx = x+dx[i]
+			ny = y + dy[i]
+			nd = day+1
+			if (0 <=nx and nx < n and 0<= ny and ny<n) and (garden[nx][ny] == 0):
+				garden[nx][ny] = 1
+				answer = nd
+				q.put(nx,ny,nd)
+	return answer
+n1 = 3
+garden1 = [[0, 0, 0], [0, 1, 0], [0, 0, 0]]
+ret1 = solution(n1, garden1)
+print("solution 함수의 반환 값은", ret1, "입니다.")
