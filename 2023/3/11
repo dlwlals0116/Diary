@@ -1,0 +1,85 @@
+ # #맨처음만든거
+# def make_apartment(floor,rooms,info):
+#     apartment = []
+#     for i in range(1,floor+1):
+#         group = []
+#         for j in range(1,rooms+1):
+#             group.append({f"{i}{j}호":info[i-1][j-1]}) if j > 10 else group.append({f"{i}0{j}호":info[i-1][j-1]})
+#         apartment.append(group)
+#     return apartment
+# print(make_apartment(3,2,[['6명','3명'],['2명','0명'],['2명','9명']]))
+# #지금 보고만든거
+# def make_apartment(floor,rooms,info):
+#     apartment = []
+#     for i in range(1,floor+1):
+#         group = {}
+#         for j in range(1,rooms+1):
+#             group.update({f"{i}{j}호":info[i-1][j-1]}) if j > 10 else group.update({f"{i}0{j}호":info[i-1][j-1]})
+#         apartment.append(group)
+#     return apartment
+# print(make_apartment(3,2,[['6명','3명'],['2명','0명'],['2명','9명']]))
+#나혼자 방금 만든거
+# def make_apartment(floor,rooms,info):
+#     apartment = []
+#     for i in range(1,floor+1):
+#         group = {}
+#         for j in range(1,rooms+1):
+#             if j > 10:
+#                 group[f"{i}{j}호"] = info[i - 1][j - 1]
+#             else:
+#                 group[f"{i}0{j}호"] = info[i-1][j-1]
+#         apartment.append(group)
+#     return apartment
+# print(make_apartment(3,2,[['6명','3명'],['2명','0명'],['2명','9명']]))
+# info 만들기
+# from random import randint
+# 층  = int(input())
+# 호 = int(input())
+# def make_info(층:int, 호 : int):
+#     info = []
+#     for i in range(층):
+#         tmp = []
+#         for j in range(호):
+#             tmp.append(str(randint(0,5)))
+#         info.append(tmp)
+#     return info
+# def make_apartment(floor,rooms,info):
+#     apartment = []
+#     for i in range(1,floor+1):
+#         group = {}
+#         for j in range(1,rooms+1):
+#             group.update({f"{i}{j}호":info[i-1][j-1]}) if j > 10 else group.update({f"{i}0{j}호":info[i-1][j-1]})
+#         apartment.append(group)
+#     return apartment
+# def make_new_info(층, 호, cnt):
+#     new_info = []
+#     while len(new_info) < cnt:
+#         new_ho = str(randint(1,층)*100 + randint(1,호)) + '호'
+#         if new_ho not in new_info:
+#             new_info.append(new_ho)
+#     for i in range(len(new_info)):
+#         new_info[i] = [new_info[i], str(randint(0,5))+'명']
+#     return new_info
+#
+# info = make_info(층,호)
+#
+# apartment_info = make_apartment(층,호,info)
+#
+# new_info = make_new_info(층,호,4)
+# def update_info(apartmend_info,new_info):
+#     for f,i in new_info:
+#         floor = int(f[:-3])
+#         apartmend_info[floor-1][f] = i
+#     return apartmend_info
+#
+# print(update_info(apartment_info, new_info))
+#채충만든자판
+def solution(keymap, targets):
+    answer,dic = [], {}
+    for i in range(len(keymap)):
+        for j in range(i):
+            dic.update({keymap[i][j]:j+1})
+    print(dic)
+    return answer
+keymap,targets = ["ABACD", "BCEFD"],["ABCD","AABB"]
+print(solution(keymap,targets))
