@@ -1,0 +1,35 @@
+#대충만든자판
+# def solution(keymap, targets):
+# #     answer,dic = [], {}
+# #     for i in keymap:
+# #         for j in range(len(i)):
+# #             if i[j] not in dic or dic[i[j]] > j+1:
+# #                 dic[i[j]] = j+1
+# #     for i in targets:
+# #         basket = 0
+# #         for j in range(len(i)):
+# #             if i[j] not in dic:
+# #                 basket = -1
+# #                 break
+# #             basket += dic[i[j]]
+# #         answer.append(basket)
+# #     return answer
+#
+# #재귀
+# def recursion(a, answer):
+#     n = a
+#     if a ==1: return 1
+#     else: n += recursion(a-1)
+#     return n
+# #바탕화면정리
+# def solution(wallpaper):
+#     region,sero,garo = [],[],[]
+#     for i in range(len(wallpaper)):
+#         for j in range(len(wallpaper[i])):
+#             if wallpaper[i][j] == "#":
+#                 region.append([i,j])
+#     for i in region:
+#         garo.append(i[1])
+#         sero.append(i[0])
+#     answer = [min(sero),min(garo),max(sero)+1,max(garo)+1]
+#     return answer
