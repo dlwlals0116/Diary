@@ -1,0 +1,16 @@
+# #승열이꺼 참고
+# def solution(wallpaper):
+#     garo,sero = [],[]
+#     for i in range(len(wallpaper)):
+#         for j in range(len(wallpaper[i])):
+#             if wallpaper[i][j] == "#":  garo.append(i), sero.append(j)
+#     return  [min(sero),min(garo),max(sero)+1,max(garo)+1]
+
+# #원래버전
+# def solution(wallpaper):
+#     region,garo,sero = [],[],[]
+#     for i in range(len(wallpaper)):
+#         for j in range(len(wallpaper[i])):
+#             if wallpaper[i][j] == "#":region.append([i,j])
+#     for i in region: garo.append(i),sero.append(i[0])
+#     return  [min(sero),min(garo),max(sero)+1,max(garo)+1]
