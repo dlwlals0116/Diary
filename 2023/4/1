@@ -1,0 +1,59 @@
+#귤고르기
+#def solution(k, tangerine:list):
+#     dic = dict()
+#     tangerine.sort()
+#     for i in tangerine:
+#         dic[i] += 1 if i in dic else dic[i] = 1
+#     arr = sorted(list(dic.values()),reverse=True)
+#     for j in range(len(arr)):
+#         k -= arr[j]
+#         if k <= 0:
+#             return j + 1
+# k = 5
+# tangerine = [1, 3, 2, 5, 4, 5, 2, 3]
+# print(solution(k,tangerine))
+#내방식
+# def solution(cards1:list, cards2, goal:list):
+#     print(cards1[:1])
+#     for i in goal:
+#         if [i] == cards1[:1]:
+#             cards1.pop(0)
+#         elif [i] == cards2[:1]:
+#             cards2.pop(0)
+#         else:
+#             return "No"
+#     return 'Yes'
+# cards1 =["i",  "drink","water"]
+# cards2 =["want", "to"]
+# goal = ["i", "want", "to", "drink", "water"]
+# print(solution(cards1,cards2,goal))
+#모범답안
+# def solution(cards1:list, cards2, goal:list):
+#     idx1=0
+#     idx2=0
+#     for i in goal:
+#         if [i] == cards1[idx1]:
+#             idx1 += 1
+#         elif [i] == cards2[idx2]:
+#             idx2 += 2
+#         else:
+#             return "No"
+#     return 'Yes'
+#프린터 재도전
+# from collections import deque
+# def solution(priorities, location):
+#     que = deque()
+#     for entry in enumerate(priorities):
+#         que.append(entry)
+#     cnt,limit  = 0, len(que)
+#     while cnt != limit :
+#         for _ in range(len(que)):
+#             for i in range(len(que)):
+#                 if que[0][1] <que[i][1]:
+#                     Pop = que.popleft()
+#                     que.append(Pop)
+#                     break
+#         cnt += 1
+#         result = que.popleft()
+#         if result[0] == location:
+#             return cnt
