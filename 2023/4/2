@@ -1,0 +1,75 @@
+# class fourcal:
+#     def __init__(self,a,b):
+#         self.a = a
+#         self.b = b
+#     def add(self):
+#         print(self.a+self.b)
+#     def sub(self):
+#         print(self.a-self.b)
+#     def mul(self):
+#         print(self.a*self.b)
+#     def div(self):
+#         print(self.a/self.b)
+#
+# cal = fourcal(3,4)
+# cal.add()
+# cal.sub()
+# cal.mul()
+# cal.div()
+
+
+# class 부모클래스:
+#     def method(self):
+#         pass
+#
+# class 자식클래스(부모클래스):
+#
+# a = 자식클래스()
+# a.method()
+
+# class country:
+#     def __init__(self,name):
+#         self.name = name
+#         self.manager = None
+#         self.player = []
+#     def introduce(self):
+#         print("이 클래스는 국가를 의미하는 클래스입니다")
+#
+# class Korea(country):
+#     def introduce(self):
+#         print(f"{self.name}의 대표팀 감독은 {self.manager}감독이며 대표팀 선수로는 {' '.join(self.player)}등이 있습니다")
+#     def addplayer(self,*args):
+#         for player in args:
+#             self.player.append(player)
+# Korea = Korea("대한민국")
+# Korea.manager="클린스만"
+# Korea.addplayer("손흥민","염진섭","김민재","최현빈","이강인","배준우", "***경트라이커***")
+# Korea.introduce()
+
+# class test:
+#     def __init__(self,a):
+#         self.a = a
+#     def __add__(self, other):
+#         return (self.a + other) *2
+#
+# a = test(3)
+# print(a +5)
+
+# #문자열 자료형
+# #문자열 자료형을 상속받아서 더하기 연산을 수정하고, 빼기연산을 추가한다
+# #빼기연산은 A문자열 -문자열 형태로 만들어주고 결과값은 A문자열에서 B문자열에 포함되어있는 문자를 지워준 결과값을 리턴한다
+# class mystr(str):
+#     def __init__(self,A):
+#         self.A = A
+#     def __sub__(self, other):
+#         new_str = ""
+#         for i in range(len(self.A)):
+#             if self.A[i] not in other:new_str += self.A[i]
+#         return new_str
+#     def __add__(self, other):
+#         return self.A + " " + other
+# A = mystr("abcde")
+# B = "bd"
+# print(A+B)
+# print(A-B)
+#
