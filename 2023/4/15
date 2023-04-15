@@ -1,0 +1,57 @@
+# #위장
+# def solution(clothes):
+#     clothes_list = dict()
+#     answer = 1
+#     for i in clothes:
+#         if i[-1] not in clothes_list: clothes_list[i[-1]] = len(i)-1
+#         else: clothes_list[i[-1]] += 1
+#     #{'headgear': 2, 'eyewear': 1} 이렇게 각각의 부분으로 개수가 정리됨
+#     for i in list(clothes_list.values()):
+#         answer *= i+1
+#     return answer -1
+# clothes = [["yellow_hat", "headgear"], ["blue_sunglasses", "eyewear"], ["green_turban", "headgear"]]
+# print(solution(clothes))
+# 
+# 위장
+# 2개일때 (a+b) + ab
+# 3개일때 (a+b+c) + (ab+bc+ca) + (abc)
+# 
+# (x+a)(x+b)(x+c) =  x3 + (a+b+c)x2 + (ab+bc+ca)x + (abc)
+# 근데 여기서 x = 1 이면 위에 3개일때 식 + 1 이 나오게 된다
+# 따라서 x에 1을 대입해서 (1+a)(1+b)(1+c) -1 = (3개일때 공식)
+# 이고 4개 5개로 gear의 종류가 늘어나도 딕셔너리로 정리한 key값의 value값을 a,b,c,d,e,f,g.....에 넣어주면 되니
+#     for i in list(clothes_list.values()):
+#         answer *= i+1
+# 이런식의 for문을 이용하여
+# 마지막 return할때 answer-1을 해주었다
+# # 달리기경주
+# def solution(players, callings):
+#     O_dict = dict()
+#     for j in range(len(players)):
+#         O_dict[players[j]] = j+1
+#     O_list = players.copy()
+#     for i in callings:
+#         O_dict[i] -= 1
+#         O_dict[O_list[O_dict[i]-1]] += 1
+#         num = O_dict[i]
+#         a = O_list[num]
+#         O_list[num] = O_list[num-1]
+#         O_list[num-1] =  a
+#     return O_list
+# player = ["mumu", "soe", "poe", "kai", "mine"]
+# callings = ["kai", "kai", "mine", "mine"]
+# print(solution(player, callings))
+# 
+# #점프와 순간이동
+# def solution(n):
+#     answer = 0
+#     while True:
+#         if n%2 == 0:
+#             n = n // 2
+#         else:
+#             n -=1
+#             answer +=1
+#         if n == 0:
+#             return answer
+# n = 5
+# print(solution(n))
