@@ -91,18 +91,15 @@
 # print(solution(name,yearning,photo))
 
 # #위장
-# def solution(clothes):
-#     clothes_list = dict()
-#     answer = 1
-#     gear_list = []
-#     for i in clothes:
-#         if i[-1] not in clothes_list: clothes_list[i[-1]] = len(i)-1
-#         else: clothes_list[i[-1]] += 1
-#         if i[-1] not in gear_list: gear_list.append(i[-1])
-#     print(f"clothes = {clothes_list}, gears = {gear_list}")
-#     for i in list(clothes_list.values()):
-#         answer *= i+1
-#     return answer -1
+def solution(clothes):
+    clothes_list = dict()
+    answer = 1
+    for i in clothes:
+        if i[-1] not in clothes_list: clothes_list[i[-1]] = len(i)-1
+        else: clothes_list[i[-1]] += 1
+    for i in list(clothes_list.values()):
+        answer *= i+1
+    return answer -1
 # clothes = [["yellow_hat", "headgear"], ["blue_sunglasses", "eyewear"], ["green_turban", "headgear"]]
 # print(solution(clothes))
 
