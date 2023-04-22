@@ -1,0 +1,64 @@
+# #주차요금 계산(망해버린 나)
+# def solution(fees, records):
+#     car_list = []
+#     car_name_list = []
+#     car_dict = {}
+#     intime = {}
+#     end_time = 23*60 + 59
+#     total = []
+#     for i in records:
+#         time, number, in_out = i.split()
+#         if in_out == "OUT":
+#             car_name_list.append(number)
+#         if number not in car_list:
+#             car_list.append(number)
+#         if number not in car_dict:
+#             car_dict[number] = 0
+#         hour,minute = map(int,time.split(":"))
+#         minutes = hour*60 + minute
+#         if in_out == "IN":
+#             intime[number] = minutes
+#         else:
+#             car_dict[number] += (minutes - intime[number])
+#             intime[number] = -1
+#     for i in car_list:
+#         if intime[i] != -1:
+#             car_dict[i] += (end_time- intime[i])
+#     car_list.sort()
+#     for i in car_list:
+#         total_time= car_dict[i]
+#         if total_time <=fees[0]:
+#             total.append(fees[1])
+#         else:
+#             if (total_time-fees[0])%10 == 0:
+#                 total.append(int(fees[1] + (total_time - fees[0]) / fees[2] * fees[3]))
+#             else:
+#                 if (total_time-fees[0])%fees[2] == 0:
+#                     total.append(int(fees[1] + ((total_time - fees[0]) // fees[2]) * fees[3]))
+#                 else:
+#                     total.append(int(fees[1] + ((total_time - fees[0]) // fees[2] + 1) * fees[3]))
+#     return total
+# fees = 	[1, 461, 1, 10]
+# records = ["00:00 1234 IN"]
+# print(solution(fees,records))
+
+#주차요금계산(승열)
+#pass
+
+
+#땅따먹기 12913
+
+def solution(land):
+    answer,num = [],0
+    for i in land:
+        try:
+            i.pop(index)
+        except:
+            pass
+        index,number = i.index(max(i)),max(i)
+        answer.append(number)
+    for i in answer:
+        num+=i
+    return num
+land = [[1,2,3,5],[5,6,7,8],[4,3,2,1]]
+print(solution(land))
