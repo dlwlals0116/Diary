@@ -1,0 +1,56 @@
+#땅따먹기
+# def solution(land):
+#     for i in range(1,len(land)):
+#         for j in range(len(land[i])):
+#             land[i][j] += max(land[i-1][:j] + land[i-1][j+1:])
+#     return max(land[-1])
+# land = [[1,2,3,5],[5,6,7,8],[4,3,2,1]]
+# print(solution(land))
+#로또
+# def solution(lottos, win_nums):
+#     num = 0
+#     for i in range(6):
+#         if win_nums.count(lottos[i]) == 1:
+#             num+=1
+#     max_num = num + lottos.count(0)
+#     min_num = num
+#     lotto_rank = {0:6,1:6,2:5,3:4,4:3,5:2,6:1}
+#     return [lotto_rank[max_num],lotto_rank[min_num]]
+# lottos = [44, 1, 0, 0, 31, 25]
+# win_nums = [31, 10, 45, 1, 6, 19]
+# print(solution(lottos,win_nums))
+
+# #뉴스클러스터링   17677
+# def J(str1,str2):
+#     str1,str2 = str1.upper(),str2.upper()
+#     list1, list2 = [],[]
+# 
+#     for i in range(len(str1) - 1):              #리스트 2글자씩 정리
+#         if str1[i:i + 2].isalpha():pass
+#         else:continue
+#         list1.append(str1[i:i + 2])
+# 
+#     for i in range(len(str2) - 1):              #리스트 2글자씩 정리
+#         if str2[i:i + 2].isalpha():pass
+#         else:continue
+#         list2.append(str2[i:i + 2])
+# 
+#     set1 = list1.copy()         #합집합만들기
+#     a_temp = list1.copy()
+#     for i in list2:
+#         set1.append(i) if i not in a_temp else a_temp.remove(i)
+# 
+#     set2 = []               #교집합만들기
+#     b_temp = list2.copy()
+#     for i in list1:
+#         if i in b_temp:
+#             b_temp.remove(i)
+#             set2.append(i)
+# 
+#     try:return len(set2)/len(set1)                            #0나누기 방지
+#     except ZeroDivisionError:return 1
+# 
+# def solution(str1:str, str2:str):    #실행함수
+#     return int(65536*J(str1,str2))
+# 
+# print(solution(str1 = "abab",str2 = "baba"))
