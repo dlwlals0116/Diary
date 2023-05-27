@@ -1,0 +1,80 @@
+# 17684
+# def solution(msg):
+#     num = 27
+#     alphabet = {'A':1, 'B':2, 'C':3, 'D':4, 'E':5, 'F':6, 'G':7, 'H':8, 'I':9, 'J':10, 'K':11, 'L':12, 'M':13, 'N':14, 'O':15, 'P':16, 'Q':17, 'R':18, 'S':19,'T':20,'U':21,'V':22,'W':23,'X':24,'Y' :25,'Z':26}
+#     answer = []
+#     while msg:
+#         for i in range(len(msg),-1,-1):
+#             if msg[:i] in alphabet:
+#                 answer.append(alphabet[msg[:i]])
+#                 try:
+#                     if msg[:i+1] not in alphabet:
+#                         alphabet[msg[:i+1]] = num
+#                         num += 1
+#                 except IndexError:pass
+#                 msg = msg.replace(msg[:i],'',1)
+#                 break
+#     return answer
+
+# # 17686
+#
+# def solution(files):
+#     answer = []
+#     delist = []
+#     for i in files:
+#         right = "dark"
+#         light = "dark"
+#         head = ""
+#         number = ''
+#         for j in i.lower():
+#             if j.isdigit():
+#                 if right == "dark":
+#                     number += j
+#                     light = "fire"
+#             else:
+#                 if light == "fire":
+#                     right = "nul"
+#                 head += j
+#         head = i.lower()[:i.lower().find(number)]
+#         delist.append([head,int(number),i])
+#     d = sorted(delist,key= lambda x:x[:2])
+#     for i in d:
+#         answer.append(i[2])
+#     return answer
+#
+# files = ["img12.png", "img10.png", "img02.png", "img1.png", "IMG01.GIF", "img2.JPG"]
+# print(solution(files))
+#
+#155651
+def solution(book_time):
+    answer = 1
+    close_time = []
+    out_time = []
+    enter_time = []
+    book_time.sort()
+    for i in range(len(book_time)):
+        start,end = book_time[i][0],book_time[i][1]
+        start_hour, start_minute = map(int,start.split(":"))
+        start_total = start_hour*60 + start_minute
+        end_hour, end_minute = map(int,end.split(":"))
+        end_total = end_hour * 60 + end_minute+10
+        enter_time.append(start_total)
+        out_time.append(end_total)
+    for i in range(len(enter_time)):
+        if len(close_time) == 0:
+            close_time.append(out_time[i])
+        else:
+            for j in range(len(close_time)):
+                if close_time[j] > enter_time[i]:
+                    answer +=1
+                    close_time.append(out_time[i])
+                    break
+                else:
+                    close_time.pop(j)
+                    close_time.append(out_time[i])
+                    break
+    return answer
+book_time = [["15:00", "17:00"], ["16:40", "18:20"], ["14:20", "15:20"],
+             ["14:10", "19:20"], ["18:20", "21:20"]]
+
+print(solution(book_time))
