@@ -1,0 +1,84 @@
+# def solution(book_time):
+# #     answer = 1
+# #     close_time = []
+# #     out_time = []
+# #     enter_time = []
+# #     book_time.sort()
+# #     for i in range(len(book_time)):
+# #         start,end = book_time[i][0],book_time[i][1]
+# #         start_hour, start_minute = map(int,start.split(":"))
+# #         start_total = start_hour*60 + start_minute
+# #         end_hour, end_minute = map(int,end.split(":"))
+# #         end_total = end_hour * 60 + end_minute+10
+# #         enter_time.append(start_total)
+# #         out_time.append(end_total)
+# #     for i in range(len(enter_time)):
+# #         if not close_time:
+# #             close_time.append(out_time[i])
+# #         else:
+# #             for j in range(len(close_time)):
+# #                 if close_time[j] > enter_time[i]:
+# #                     answer +=1
+# #                     close_time.append(out_time[i])
+# #                     close_time.sort()
+# #                     break
+# #                 else:
+# #                     close_time.pop(j)
+# #                     close_time.append(out_time[i])
+# #                     close_time.sort()
+# #                     break
+# #     return answer
+# # book_time = [["15:00", "17:00"], ["16:40", "18:20"], ["14:20", "15:20"],
+# #              ["14:10", "19:20"], ["18:20", "21:20"]]
+# # print(solution(book_time))
+#카카오 프렌즈 4블록
+# def solution(m, n, board):
+#     icon_location = []
+#
+#     for i in range(len(board)-1):
+#         for j in range(len(i)-1):
+#             if board[i][j] == board[i+1][j] == board[i][j+1] == board[i+1][j+1]:
+#                 if (i,j) not in icon_location:
+#                     icon_location.append((i,j))
+#                 if (i,j+1) not in icon_location:
+#                     icon_location.append((i,j+1))
+#                 if (i+1,j) not in icon_location:
+#                     icon_location.append((i+1,j))
+#                 if (i+1,j+1) not in icon_location:
+#                     icon_location.append((i+1,j+1))
+#
+#     return len(icon_location)
+# m = 4
+# n = 5
+# board = ["CCBDE",
+#          "AAADE",
+#          "AAABF",
+#          "CCBBF"]
+# print(solution(m,n,board))
+
+# #문자열 :그중 strip
+# def mystrip(string:str, substr:str = ' '):
+#     #원본문자열에서 양 옆에서부터 안쪽으로 들어오면서 연속되는 substr을 제거한다.
+#     l = 0
+#     r = len(string)-1
+#     while string[l] == substr:
+#         l += 1
+#         if l>= len(string):
+#             break
+#     while string[r] == substr:
+#         r -= 1
+#         if r<0:
+#             break
+#     return string[l:r+1]
+# a = "..str.ip...."
+# print(mystrip(a,'.'))
+
+def myenumerate(arr:list, start:int = 0):
+    answer = []
+    p = 0
+    for i in arr:
+        answer.append([start+p,i])
+        p +=1
+    return answer
+b = ['a','b','c','d']
+print(myenumerate(b,3))  #[[0,'a'],[1,'b'],[2,'c'],[3,'d']
