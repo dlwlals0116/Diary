@@ -1,0 +1,50 @@
+# def floyd_warshall(matrix:list):
+#     v = len(matrix)
+#     #최단거리테이블 생성 및 초기값 설정
+#     d = [[float('inf')] * v for _ in range(v)]
+#     for x in range(v):
+#         for y in range(v):
+#             d[x][y] = matrix[x][y]
+#     #중간지점 노드 m에 대하여 x -> m -> y 비용을 계산하며 최단거리 갱신
+#     for m in range(v):
+#         for x in range(v):
+#             for y in range(v):
+#                 d[x][y] =min(d[x][y], d[x][m]+ d[m][y])
+#
+#     return d
+# inf = float('inf')
+# amatrix = [[0,3,inf,inf],
+#            [4,0,2,4],
+#            [7,5,0,3],
+#            [inf,inf,1,0]]
+#
+# dist = floyd_warshall(amatrix)
+# print(dist)
+# #프로그래머스 49191
+# def solution(n, results):
+#     answer = 0
+#     d = [[0] * (n+1) for _ in range(n+1)]
+#     #results를 기준으로 승패테이블 초기화
+#     for winner, loser in results:
+#         d[winner][loser] = 1
+#         d[loser][winner] = -1
+#     #플로이드 워셜 알고리즘 수정
+#     #x,m,y의 사이의 관계로 승패를 추측할 수 있다
+#     for m in range(1,n+1):
+#         for x in range(1,n+1):
+#                 for y in range(1,n+1):
+#                     #x가 m을 이기고 m이 y를 이기면 x는 y를 이긴다
+#                     if d[x][m] == 1 and d[m][y] == 1:
+#                         d[x][y] =1
+#                     #x가 m에게 지고 m이 y에게 지면 x는 y를 이긴다
+#                     if d[x][m] == -1 and d[m][y] == -1:
+#                         d[x][y] = -1
+#     #모든 경기를 치른 사람만 카운트
+#     for x in range( 1, n+1):
+#         zera = len([w for w in d[x][1:] if w ==0])
+#         answer += zera ==1
+#     return answer
+# results = [[4, 3], [4, 2], [3, 2], [1, 2], [2, 5]]
+# n = 5
+#
+# print(solution(n,results))
