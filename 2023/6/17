@@ -113,3 +113,54 @@
 # k = mystr("hello world")
 # x = "hello"
 # print(k-x)
+
+
+
+
+#막교시에 한거
+# def solution(A,B,C):
+#     if A == 0:
+#         return "A는 0이 될 수 없습니다"
+#     if B ** 2 - 4 * A * C > 0:
+#         plus_root = (((-B)+( B ** 2 - 4 * A * C)**(1/2))/(2*A))
+#         minus_root = (((-B)-( B ** 2 - 4 * A * C)**(1/2))/(2*A))
+#         if plus_root >0:first_term = f"(x-{plus_root})"
+#         else:first_term = f"(x+{-1*plus_root})"
+#         if minus_root >0:second_term = f"(x-{minus_root})"
+#         else:second_term = f"(x+{-1*minus_root})"
+#         return first_term+second_term+"=0"
+#     elif B ** 2 - 4 * A * C == 0:
+#         double_root = int(-B/(2*A))
+#         if double_root >0: return f"(x-{double_root})**2"
+#         else: return f"(x+{-1*double_root})**2"
+#     else:
+#         return "해가 없습니다"
+#
+# A,B,C = map(int, input().split())
+# print(solution(A,B,C))
+
+def solution(picks, minerals):
+    tiredness = 0
+    dia_pick = {'diamond':1,'iron':1, 'stone':1}
+    iron_pick = {'diamond':5, 'iron':1, 'stone':1}
+    stone_pick = {'diamond':25, 'iron':5, 'stone':1}
+    d,r,s = picks
+    dia_can, iron_can, stone_can = 5*d, 5*r, 5*s
+    minerals.sort()
+    for i in minerals:
+        print(f"다이아는 {dia_can}남았고 철은 {iron_can}만큼 남았다, {stone_can}")
+        if dia_can > 0:
+            tiredness += dia_pick[i]
+            dia_can -= 1
+        elif iron_can > 0:
+            tiredness += iron_pick[i]
+            iron_can -= 1
+        else:
+            tiredness += stone_pick[i]
+            stone_can -= 1
+            if stone_can ==0:
+                return tiredness
+    return tiredness
+picks = [1, 3, 2]
+minerals = ["diamond", "diamond", "diamond", "iron", "iron", "diamond", "iron", "stone"]
+print(solution(picks, minerals))
