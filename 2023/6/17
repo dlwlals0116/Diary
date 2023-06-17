@@ -1,4 +1,5 @@
-# def floyd_warshall(matrix:list):
+#오전수업 
+#def floyd_warshall(matrix:list):
 #     v = len(matrix)
 #     #최단거리테이블 생성 및 초기값 설정
 #     d = [[float('inf')] * v for _ in range(v)]
@@ -48,3 +49,67 @@
 # n = 5
 #
 # print(solution(n,results))
+
+
+#오후수업
+# class Test():
+#     def __init__(self,a):
+#         self.a = a
+#         print(self.a)
+#         print("생성자 함수 실행")
+#
+# t1 = Test(3)
+# t2 = Test(4)
+# print(t2.a)
+# print(t1.a)
+# class 노트():
+#     메모장 = []
+#     def __init__(self):
+#         # self.메모장 = []
+#         self.메모장2 = []
+#
+# A = 노트()
+# B = 노트()
+#
+# A.메모장.append("복습하기")
+# B.메모장.append("예습하기")
+#
+# A.메모장2.append("복습하기")
+# B.메모장2.append("예습하기")
+#
+# print(A.메모장)
+# print(B.메모장)
+#
+# print(A.메모장2)
+# print(B.메모장2)
+#
+# class country():
+#     def __init__(self,name):
+#         self.name = name
+#         self.manager = None
+#         self.players = []
+#     def introduce(self):
+#         print("이 클래스는 국가를 의미하는 클래스입니다")
+#
+#
+# class KOREA(country):
+#     #매서드 오버로딩
+#     def introduce(self):
+#         print(f"{self.name} 대표팀 감독은 {self.manager}이고, 대표선수로는 {self.players}가 있다")
+#
+# class mystr(str):
+#     def __init__(self, stirng):
+#         self.mystriint= stirng
+#
+#     def __add__(self, other):
+#         return (self.mystring + other)*2
+#
+#     def __sub__(self,other):
+#         answer = ""
+#         for i in self:
+#             if i not in other:answer += i
+#         return answer
+#
+# k = mystr("hello world")
+# x = "hello"
+# print(k-x)
