@@ -33,11 +33,17 @@ def solution(A,B,C):
                 f = A / d
                 g = C / e
                 if d * g + e * f == B:
-                    if d > 0 or e > 0:
+                    if d >  0 or e > 0:
                         op1 = '+' if e > 0 else '-'
                         op2 = '+' if g > 0 else '-'
-                        return f"({int(d)}x {op1} {abs(e)})({int(f)}x {op2} {abs(int(g))})"
+                        d = str(d)
+                        if d in  ['-1', '1']:
+                            d = d.replace('1','')
+                        f = str(f).replace('.0','')
+                        if f in ['-1', '1']:
+                            f = d.replace('1','')
 
+                        return f"({d}x {op1} {abs(e)})({f}x {op2} {abs(int(g))})"
         # 결과가 정수형태로 나오지 않을경우 근의 공식을 이용해서 결과값 도출
         x1 = (-B + (B**2 - 4*A*C)**0.5) / (2 * A)
         op1 = '+' if x1 > 0 else '-'
@@ -50,11 +56,13 @@ def solution(A,B,C):
         # 해가 1개인 경우 ax² + bx + c = (dx + e)(dx + e) = (dx + e)²
         d = math.sqrt(A)
         e = math.sqrt(C)
+        d = str(d).replace(".0",'')
         if e == 0:
             return f"{d}x²"
         op = '+' if B > 0 else '-'
-        print(f"({int(d)}x {op} {int(e)})²")
-        return f"({int(d)}x {op} {int(e)})²"
+        if d in ['-1','1']:
+            d = d.replace('1','')
+        return f"({d}x {op} {int(e)})²"
 
         # 해가 없는 경우
     elif B ** 2 - 4 * A * C < 0:
