@@ -3,7 +3,19 @@ from tkinter.ttk import *
 from calculater import *
 import matplotlib.pyplot as plt
 import numpy as np
-
+#기능
+def clear():
+    A = ent_A
+    B = ent_B
+    C = ent_C
+    A.delete(0,'end')
+    B.delete(0, 'end')
+    C.delete(0, 'end')
+    ent_result.delete(0,'end')
+    A.insert(0, 'A')
+    B.insert(0, 'B')
+    C.insert(0, 'C')
+    ent_result.insert(0, '정답')
 
 def draw_graph():
     A = int(ent_A.get())
@@ -77,18 +89,20 @@ text_y.configure(font = ('맑은고딕',17))
 
 ent_result = Entry(font = '맑은고딕 30')
 ent_result.place(x = 60, y = 125 , width=500, height = 50)
-ent_result.insert(0,'정답이 나올 공간')
+ent_result.insert(0,'정답')
 
 #Button
 
 btn_cal = Button(text = '계산하기')
-btn_cal.place(x = 100 ,y = 200 ,width= 150, height = 70)
+btn_cal.place(x = 50 ,y = 200 ,width= 150, height = 70)
 btn_cal.configure(command= get_result)
 
 btn_draw = Button(text = '그래프로 보기')
-btn_draw.place(x = 300 ,y = 200 ,width= 150, height = 70)
+btn_draw.place(x = 215,y = 200 ,width= 150, height = 70)
 btn_draw.configure(command=draw_graph)
 
-
+btn_clear = Button(text = "초기화")
+btn_clear.place(x = 380, y = 200, width = 150, height = 70 )
+btn_clear.configure(command=clear)
 #메인 루프이벤트 처리
 root.mainloop()
