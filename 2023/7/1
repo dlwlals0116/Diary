@@ -1,0 +1,133 @@
+#복습링크 =https://eum-jh.notion.site/0590c80b926e4ddf92f2f9ee2489729a
+# #1
+# strings = ['apple', 'Banana', 'cherry', 'data', 'elderberry']
+# result = sorted(strings, key= (lambda x: x[0].lower()))
+# print(result)
+# #2
+# def counter(reset = False):
+#     if not hasattr(counter,'cnt')or reset:
+#         counter.cnt = 0
+#     counter.cnt +=1
+#     return counter.cnt
+# print(counter())
+# print(counter(True))
+# print(counter())
+
+# #3
+# def outer(x):
+#     def inner(y):
+#         return x+y
+#     return inner
+# closure = outer(10)
+# result = closure(5)
+# print(result)
+# #4
+# def outer():
+#     x = 0
+#     def inner():
+#         x = 10
+#     inner()
+#     print(x)
+# outer()
+# #nonlocal keyword
+# def outer():
+#     x = 0
+#     def inner():
+#         nonlocal x
+#         x = 10
+#     inner()
+#     print(x)
+# outer()
+
+# #5
+# def make_counter(start = 0):
+#     cnt = start -1
+#     def counter(reset = False):
+#         nonlocal cnt
+#         cnt += 1
+#         return cnt
+#     return counter
+# counter1 = make_counter(4)
+# print(counter1())
+# print(counter1())
+# print(counter1())
+# #합성함수
+# def compose(f,g):
+#     def wrapper(x):
+#         return f(g(x))
+#     return wrapper
+#
+# def f(x):
+#     return x**2
+#
+# def g(x):
+#     return x+3
+# h = compose(f,g)
+# print(h(5))
+# #Memorization
+# def fibonacci():
+#     cache = {1:1,2:1}
+#     def calculate(n):
+#         if n in cache:
+#             return cache[n]
+#         cache[n] = calculate(n-1) + calculate(n-2)
+#         return cache[n]
+#     return calculate
+# fib = fibonacci()
+# print(fib(5))
+# print(fib(250))
+# #Partial Application(부분 적용)
+# #부분적용함수
+# def make_partial(func, fix = ()):
+#     def partial(*inputs):
+#         i = 0
+#         arg_list = []
+#         for fixed_arg in fix:
+#             if fixed_arg is not None:
+#                 arg_list.append(fixed_arg)
+#             else:
+#                 arg_list.append(inputs[i])
+#                 i += 1
+#             return func(*arg_list)
+#     return partial
+#
+# #n제곱 함수
+# def pow(x,n):
+#     return x**n
+#
+# #제곱을 구하는 함수 생성
+# sqaure = make_partial(pow, (None, 2))
+# print(sqaure(2)) #출력: 4
+#
+# #제곱근을 구하는 함수 생성
+# sqrt = make_partial(pow, (None, 0.5))
+# print(sqrt(2)) #출력: 1.4142135623730951
+#
+# #세제곱근을 구하는 함수 생성
+# cubicroot = make_partial(pow, (None, 1/3))
+# print(cubicroot(2)) #출력: 1.259921
+#curring(커링)
+def curring(func):
+    #입력함수의 파라미터 개수 가져오기
+    param_len = len(func.__code__.co_varnames)
+    def curried(*args):
+        if len(args) >= param_len:
+            return func(*args)
+        else:
+            return lambda *next_args: curried(*(args + next_args))
+
+    return curried
+
+#곱셈함수
+def multiply(x,y,z):
+    return x*y*z
+#커링함수화 된 곰셉함수
+curried_multiply = curring(multiply)
+
+#아래는 모두 24를 출력
+print(curried_multiply(2)(3)(4))
+print(curried_multiply(2)(3,4))
+print(curried_multiply(2,3)(4))
+print(curried_multiply(2,3,4))
+
+#커링함수에 모든 결과를 넘기지 않으면 부분적용으로 볼 수 있다
