@@ -1,0 +1,131 @@
+# class Animal:
+#     def pattern(self):
+#         print("민무늬")
+#
+#     def sound(self):
+#         print("소리없음")
+#
+# class dog(Animal):
+#     def sound(self):
+#         super().sound()
+#         print("멍멍")
+#
+# d = dog()
+# d.pattern()
+# d.sound()
+# Animal.sound(d)
+# # 다중상속
+# # 여려개의 클래스를 상속가능
+# # 형식: class a(클래스1, 클래스2)
+# s =range(19)
+# it = iter(s)
+# try:
+#     print(next(it))
+#     print(next(it))
+#     print(next(it))
+#     print(next(it))
+# except StopIteration:
+#     print("끝")
+# #정석(iter을 위한 실행클래스를 따로만듬)
+# class ReverseIter:
+#     def __init__(self,instance):
+#         self.inst = instance
+#         self.index = len(self.inst.data)
+#     def __next__(self):
+#         if self.index == 0:
+#             raise StopIteration
+#         self.index -=1
+#         return self.inst.data[self.index]
+# class Reverse:
+#     def __init__(self,data):
+#         self.data = data
+#     def __iter__(self):
+#         return ReverseIter(self)
+# rev = Reverse('Hello')
+# i = 0
+# for char in rev:
+#     if i ==2:
+#         break
+#     print(char)
+#     i+=1
+# for char in rev:
+#     print(char)
+# #generator
+# #yield를 만나면 그자리에서 멈추고 다음 next가 나오면 그자리에서 시작
+# def generator_test():
+#     yield 1
+#     yield 2
+#     yield 3
+# it = generator_test()
+# print(next(it))
+# print(next(it))
+# print(next(it))
+# class ArithmeticAddlist(list):
+#     def __init__(self, data = ()):
+#         super().__init__(data)
+#     #+연산자에 대한 오버로딩
+#     #왼쪽이 연산자 오른쪽이 피연산자가 된다
+#     def __add__(self, other):
+#         if len(self) != len(other):
+#             raise Exception("리스트의 길이가 다릅니다")
+#         result = ArithmeticAddlist()
+#         for item1, item2 in zip(self, other):
+#             result.append(item1 + item2)
+#         return result
+# alist1 = ArithmeticAddlist([1,2,3])
+# alist2 = ArithmeticAddlist([4,5,6])
+# alist3 = ArithmeticAddlist([1,2,3,5])
+# print(alist1 + alist2)
+class Node:
+    def __init__(self,data,link = None):
+        self.data = data
+        self.link = link
+
+class Mylist:
+    def __init__(self,*datas):
+        self.length = 0
+        self.head = None
+        self.tail = None
+
+        for data in datas:
+            self.append(data)
+    #노드를 생성하여 데이터를 연결
+    def append(self,data):
+        node = Node(data)
+
+        #데이터가 없는경우
+        if self.head is None:
+            self.head = node
+            self.tail = node
+        else:
+            self.tail.link = node
+            self.tail = node
+        self.length += 1
+    #출력할때 이쁘게 출려가기 str재정의
+    def __str__(self):
+        result = ""
+        curr = self.head
+        while curr is not None:
+            result += str(curr.data)
+            if curr.link is not None:
+                result += ", "
+            curr = curr.link
+        return result
+
+    def __iter__(self):
+        def generate():
+            curr = self.head
+            while curr is not None:
+                yield curr.data
+                curr = curr.link
+        return generate()
+
+b = Node(2)
+a = Node(1,b)
+print(a.data)
+print(a.link.data)
+print(a.link.link)
+my_list = Mylist([1,2,3])
+print(my_list)
+for i in my_list:
+    print(i)
