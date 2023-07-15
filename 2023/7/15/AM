@@ -103,13 +103,14 @@ class Mylist:
         self.length += 1
     #출력할때 이쁘게 출려가기 str재정의
     def __str__(self):
-        result = ""
+        result = "<"
         curr = self.head
         while curr is not None:
             result += str(curr.data)
             if curr.link is not None:
                 result += ", "
             curr = curr.link
+        result += ">"
         return result
 
     def __iter__(self):
