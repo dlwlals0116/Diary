@@ -1,0 +1,36 @@
+class wls:
+    def 인사(self):
+        print("나는 울스 모든게 다 울스")
+    def 프로필(self):
+        print("나는 중3 울스다! 이름은 이지호고 피파만 하는 피파창 인생 막사는 사람이다")
+    def __gt__(self, other):
+        print("뭘 비교하든 이지민이 더 나음ㅇㅇ")
+    def __lt__(self, other):
+        print("뭘 비교하든 이지호가 구림ㅇㅇ")
+    def 친구목록(self):
+        print("None")
+    def 피파팀가치(self,present_team):
+        print(f"{present_team}을 운영중. 팀가치는 뭐가됫든 망할예정")
+    def 현재상태(self):
+        print("중2병이 걸려서 머리는 기르고다니며 반팔따윈 입지 않지! \n 난 게임만할거다!")
+    def __getitem__(self, item):
+        if item == 1:
+            print("나는 이지민보다 롤을 못한다")
+        elif item == 2:
+            print("나는 이지민보다 농구를 못한다")
+        elif item == 3:
+            print("나는 이지민보다 피파를 못한다")
+        elif item == 4:
+            print("나는 이지민보다 코딩을 못한다")
+        elif item == 5:
+            print("나는 이지민보다 공부를 못한다")
+        else:
+            print("나는 이지민보다 잘하는게 없다")
+    def __eq__(self,other):
+        print("내가 더 낮은데 왜 같다그러냐 어이없네 진짜")
+    def 트라우마(self,name):
+        if name == "김성민":
+            print("으악 레프트훅")
+        elif name =="서도영":
+            print("돈도없는년이??")
+이지호 = wls()
