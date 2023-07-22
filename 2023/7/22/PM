@@ -1,0 +1,97 @@
+def bubble_sort(arr, reverse = False):
+    if reverse:
+        for i in range(len(arr)):
+            last_arr = ''
+            if last_arr == arr:return arr
+            last_arr =arr
+            for j in range(len(arr)-i-1):
+                if arr[j] <arr[j+1]:
+                    board = arr[j]
+                    arr[j] = arr[j+1]
+                    arr[j+1] = board
+        return arr
+
+    else:
+        for i in range(len(arr)):
+            last_arr = ''
+            if last_arr == arr:return arr
+            last_arr =arr
+            for j in range(len(arr)-i-1):
+                if arr[j] >arr[j+1]:
+                    board = arr[j]
+                    arr[j] = arr[j+1]
+                    arr[j+1] = board
+        return arr
+# arr = [1, 5, 3, 2, 87, 34, 9, 15]
+# print(bubble_sort(arr,reverse = True))
+def selection_sort(arr, reverse = False):
+    if reverse:
+        for i in range(len(arr)):
+            min_index = i
+            for j in range(i, len(arr)):
+                if arr[min_index] < arr[j]:
+                    min_index = j
+            arr[i], arr[min_index] = arr[min_index], arr[i]
+        return arr
+    else:
+        for i in range(len(arr)):
+            min_index = i
+            for j in range(i, len(arr)):
+                if arr[min_index] > arr[j]:
+                    min_index = j
+            arr[i], arr[min_index] = arr[min_index], arr[i]
+        return arr
+# arr = [1, 5, 3, 2, 87, 34, 9, 15]
+# print(selection_sort(arr, reverse = True))
+def insertion_sort(arr, reverse = False):
+    if reverse:
+        for key_index in range(1, len(arr)):
+            for behind_index in range(key_index - 1, -1, -1):
+                if arr[key_index] > arr[behind_index]:
+                    arr[key_index], arr[behind_index] = arr[behind_index], arr[key_index]
+                    key_index = behind_index
+        return arr
+    else:
+        for key_index in range(1,len(arr)):
+            for behind_index in range(key_index-1,-1,-1):
+                if arr[key_index] <arr[behind_index]:
+                    arr[key_index], arr[behind_index] = arr[behind_index], arr[key_index]
+                    key_index = behind_index
+        return arr
+# arr = [1, 5, 3, 2, 87, 34, 9, 15]
+# print(insertion_sort(arr, reverse = True))
+# def shell_sort(arr, reverse = False):
+#     if reverse:
+#         pass
+#     else:
+#         k = len(arr)//2
+#         while k >= 1:
+#             arr
+# 실패다 ㅅ
+
+import random
+import time
+
+a = [i  for i in range(10000000)]
+random.shuffle(a)
+#
+# start = time.time()
+# selection_sort(a)
+# end = time.time()
+# print(f"선택 = {end-start}")
+#
+# start = time.time()
+# bubble_sort(a)
+# end = time.time()
+# print(f"버블 = {end-start}")
+#
+# start = time.time()
+# insertion_sort(a)
+# end = time.time()
+# print(f"삽입 = {end-start}")
+
+start = time.time()
+a.sort()
+end = time.time()
+print(f"퀵 = {end-start}")
+
