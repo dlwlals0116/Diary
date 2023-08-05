@@ -1,0 +1,230 @@
+ class Node:
+#     def __init__(self,data,link = None):
+#         self.data = data
+#         self.link = link
+# class Mylist:
+#     def __init__(self,*datas):
+#         self.length = 0
+#         self.head = None
+#         self.tail = None
+#         for data in datas:
+#             self.append(data)
+#     #노드를 생성하여 데이터를 연결
+#     def append(self,data):
+#         node = Node(data)
+#
+#         #데이터가 없는경우
+#         if self.head is None:
+#             self.head = node
+#             self.tail = node
+#         else:
+#             self.tail.link = node
+#             self.tail = node
+#         self.length += 1
+#     #출력할때 이쁘게 출려가기 str재정의
+#     def __str__(self):
+#         result = "<"
+#         curr = self.head
+#         while curr is not None:
+#             result += str(curr.data)
+#             if curr.link is not None:
+#                 result += ", "
+#             curr = curr.link
+#         result += ">"
+#         return result
+#     def __len__(self):
+#         return self.length
+#     def __iter__(self):
+#         def generate():
+#             curr = self.head
+#             while curr is not None:
+#                 yield curr.data
+#                 curr = curr.link
+#         return generate()
+#     def __getitem__(self, item):
+#         #내가한거
+#         # cnt = 0
+#         # curr = self.head
+#         # while curr is not None:
+#         #     cnt += 1
+#         #     curr = curr.link
+#         #     if cnt == item:
+#         #         return curr.data
+#         if type(item) != int:
+#             raise TypeError('인덱스는 정수값이여야합니다')
+#         if item < 0:
+#             item = len(self) + item
+#         if item >= len(self) or item < 0:
+#             raise IndexError('인덱스가 범위를 초과했습니다')
+#         for idx, data in enumerate(self):
+#             if idx == item: return data
+#     def __setitem__(self, key, value):
+#         if type(key) != int:
+#             raise TypeError('인덱스는 정수값이여야합니다')
+#         if key < 0:
+#             key = len(self) + key
+#         if key >= len(self) or key < 0:
+#             raise IndexError('인덱스가 범위를 초과했습니다')
+#         cnt, curr = 0, self.head
+#         while curr is not None:
+#             if cnt == key:
+#                 curr.data = value
+#             cnt += 1
+#             curr = curr.link
+#     def pop(self,index = -1):
+#         if type(index) != int:
+#             raise TypeError('인덱스는 정수값이여야합니다')
+#         if index < 0:
+#             index = len(self) + index
+#         if index >= len(self) or index < 0:
+#             raise IndexError('인덱스가 범위를 초과했습니다')
+#         curr,cnt=  self.head,0
+#         if index == 0:
+#             self.head = curr.link
+#             self.length -= 1
+#             return curr.data
+#         elif index == len(self)-1:
+#             result = self.tail.data
+#             while curr is not None:
+#                 if cnt == index-1:
+#                     self.tail = curr
+#                     curr.link = None
+#                 curr = curr.link
+#                 cnt += 1
+#             self.length -= 1
+#             return result
+#         elif len(self) == 1:
+#             result = self[0]
+#             self.tail = None
+#             self.head = None
+#             self.length -= 1
+#             return result
+#         else:
+#             result = 0
+#             while curr is not None:
+#                 if cnt == index-1:
+#                     result = curr.link.data
+#                     curr.link = curr.link.link
+#                 curr = curr.link
+#                 cnt +=1
+#             self.length -= 1
+#             return result
+#     def reverse(self):
+#         curr = self.head
+#         next = None
+#         while curr is not None:
+#             link = next
+#             next = curr
+#             curr = curr.link
+#             next.link = link
+#         self.tail, self.head = self.head, self.tail
+#
+# # my_list = Mylist(1,2,3)
+# # print(my_list)
+# # for i in my_list:
+# #     print(i)
+# # mylist = Mylist(1,2,3,4)
+# # print(mylist[2])
+# # print(mylist[-3])
+# # mylist[-1] = 4
+# # print(mylist)
+# # print(mylist.pop(2))
+# # print(mylist)
+#
+#
+# #실패율
+# def solution(N, stages):
+#     stage_num = list(range(1,N+1))
+#
+#     fail = [0]*(N+2)
+#
+#     for num in stages:
+#         fail[num] +=1
+#
+#     length = len(stages)
+#     for num in range(1,N+1):
+#         cnt = fail[num]
+#         fail[num] = (fail[num]/length) if length != 0 else 0
+#         length -= cnt
+#     answer = sorted(stage_num,key=lambda num:fail[num], reverse=True)
+#     return answer
+#
+# print(solution(4,[4,4,4,4,4]))
+# #이진탐색
+# import random
+#
+# arr = []
+# while len(arr) < 20:
+#     x = random.randint(0,100)
+#     if x not in arr:
+#         arr.append(x)
+#
+# def Binary_search(arr:list,target):
+#     arr.sort()
+#     low = 0
+#     high = len(arr)-1
+#     while low <= high:
+#         middle = (low+high)//2
+#         if arr[middle] <target:
+#             low = middle + 1
+#         elif arr[middle] > target:
+#             high = middle -1
+#         else:
+#             print(f"arr의 {middle}번째에 {target}이 존재합니다")
+#     else:
+#         print(f"{target}이 존재하지않습니다")
+
+class Koreannum:
+    def __init__(self,num):
+        if type(num) not in [str,int]:
+            raise TypeError("정수나 문자열을 입력해주세요")
+        self.num = num
+    def __int__(self):
+        result = 0
+        danwi = {"만":10000,"천":1000,"백":100,"십":10}
+        number = {"일":1, "이":2,"삼":3,"사":4,"오":5,"육":6,"칠":7,"팔":8,"구":9}
+        storage = 0
+        cnt = 1
+        for i in self.num:
+            if i in danwi:
+                if storage != 0:
+                    result += storage*danwi[i]
+                    storage = 0
+                    cnt+=1
+                else:
+                    result += danwi[i]
+                    cnt+=1
+            else:
+                if cnt== len(self.num):
+                    result += number[i]
+                storage = number[i]
+                cnt+=1
+        return result
+    def __str__(self):
+        if type(self.num) == str:
+            return self.num
+        if self.num == 0:
+            return "영"
+        int_num = self.num
+        str_num = ""
+        #숫자
+        digit_list = ["","일","이","삼","사","오","육","칠","팔","구"]
+        #10 ~1000eksdnl
+        low_part_list = {1:"",10:"십",100:"백",1000:"천"}
+
+        string = ""
+        low_part_div = 1000
+        part = int_num
+        while part:
+            digit = part // low_part_div
+            if digit:
+                if low_part_div == 1 or digit != 1:
+                    string += low_part_list[digit]
+                string += low_part_list[low_part_div]
+                part %= low_part_div
+            low_part_div //= 10
+        return string
+strnum = Koreannum("삼만천삼백칠십삼")
+strnum2 = Koreannum("123")
+print(int(strnum))
+print(str(strnum2))
