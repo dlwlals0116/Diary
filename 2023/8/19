@@ -1,0 +1,132 @@
+# #구명보트
+# def solution(people, limit):
+#     two = 0   #2명씩 타고갈수 있는 횟수
+#     people.sort()
+#     b = len(people)-1    #맨 뒤부터
+#     a = 0                #처음부터
+#     while a < b:
+#         # a는 0부터 점점 커지고 b는 마지막부터 점점 작아지므로 a가 b보다 같거나 커진다면
+#         # 모든 사람을 확인했다는 의미이므로 while문을 종료할수있다
+#         if people[a] + people[b] <= limit:
+#             #a와 b의 몸무게의 합이 제한보다 작다면
+#             #2명을 한번에 태우면 된다.
+#             two += 1
+#             a+=1
+#             b-=1
+#         else:
+#             #하지만 a의 사람과 b의 사람의 몸무게의 합이 제한을 넘는다면 b를 점점 줄여 a+b<limit
+#             #을 만들때까지 b를 한칸씩 내려 몸무게의 합을 줄여 2명을 한번에 태울수 있는 a+b를 찾는다
+#             b -= 1
+#     one = len(people) - two*2
+#     #2명을 태울 수 있는 횟수에 *2를 하면 2명이서 타고간 사람의 합을 의미하니 총 사람수에 two*2를
+#     #빼주면 혼자 타고가야하는 사람의 수가 나온다
+#     return one + two
+#최솟값구하기
+# def solution(A,B):
+#     answer = 0
+#     A.sort()
+#     B.sort(reverse = True)
+#     for i in range(len(A)):
+#         answer += (A[i]*B[i])
+#     return answer
+# A = [1, 4, 2]
+# B = [5, 4, 4]
+# print(solution(A,B))
+# #짝지어 제거하기
+# def solution(s):
+#     index = 0
+#     s_list = list(s)
+#     while s_list:
+#         if index == len(s_list)-1:
+#             return 0
+#         if s_list[index] == s_list[index+1]:
+#             s_list.pop(index+1)
+#             s_list.pop(index)
+#             index = 0
+#         else:
+#             index += 1
+#     return 1
+# s = 'aabbaa'
+# print(solution(s))
+# # Class stack
+# class StackElement:
+#     #생성자 생성
+#     def __init__(self,data, link):
+#         #요소의 값
+#         self.data = data
+#         self.link = link
+#
+# class Stack:
+#     #self.top: 항상 최상위 요소를 확인한다
+#     def __init__(self):
+#         self.top = None
+#
+#     #가장 최상위 노드의 데이터를 return 하는 함수
+#     def peek(self):
+#         if self.top is None:
+#             return None
+#         else:
+#             return self.top.data
+#     def push(self,data):
+#         if self.top is None:
+#             Node = StackElement(data, None)
+#             self.top = Node
+#         else:
+#             Node = StackElement(data, self.top)
+#             self.top = Node
+#     def pop(self):
+#         if self.top is None:
+#             return None
+#         else:
+#             result = self.top.data
+#             self.top = self.top.link
+#             return result
+# st = Stack()
+# print(st.peek())
+#
+# for i in range(1,6):
+#     st.push(i)
+#     print(st.peek())
+# for i in range(1,6):
+#     print(st.pop())
+#
+# #주식가격 일반
+# def solution(prices):
+#     answer,w = [],[]
+#     for i in range(len(prices)):
+#         for j in range(i+1, len(prices)):
+#             if prices[j] >= prices[i]:
+#                 w.append(prices[j])
+#             else:
+#                 break
+#         if len(w)+(i+1) < len(prices):
+#             answer.append(len(w)+1)
+#         else:
+#             answer.append(len(w))
+#         w.clear()
+#     return answer
+# prices = [4,5,6,3,2]
+# print(solution(prices))
+#주식 가격 stack 이용 1
+def solution(prices):
+    stack_list = []
+    answer = []
+    stack_list.append(prices.pop())
+    answer.append(0)
+    while prices:
+        cnt = 0
+        for i in range(len(stack_list)-1,-1,-1):
+            prices_pop = prices.pop()
+            cnt +=1
+            print(stack_list[i], prices_pop)
+            if prices_pop < stack_list[i]:
+                answer.append(cnt)
+                stack_list.append(prices_pop)
+                break
+        answer.append(cnt)
+        stack_list.append(prices_pop)
+    answer.reverse()
+    answer[0] += 1
+    return answer
+prices = [1,2,3,2,3]
+print(solution(prices))
