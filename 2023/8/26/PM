@@ -78,3 +78,17 @@ class Wolf(Dog):
         print("아우우")
     def 희귀도(self):
         print("High")
+
+#클래스안에서 객체만들기
+class a:
+    def __init__(self,c):
+        self.c = c
+
+class b:
+    def __init__(self,d):
+        self.d = d
+        self.a = a(1)
+        print(self.a)
+
+tst = b(1)
+print(tst.a.c)
