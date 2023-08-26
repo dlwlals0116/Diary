@@ -1,0 +1,104 @@
+##프로그래머스 요격 시스템
+# def solution(targets):
+#     answer = 0
+#     targets.sort(key=lambda x:x[1])
+#     standard =  0
+#     for i in range(0,len(targets)):
+#         if  targets[i][1]> standard > targets[i][0]:
+#             pass
+#         else:
+#             answer += 1
+#             standard  = targets[i][1]-0.1
+#     return answer
+# targets =[[1, 2], [2, 3], [1, 3], [3, 4], [4, 5], [3, 5]]
+# print(solution(targets))
+# [[1, 3], [1, 3], [1, 3], [1, 3]] 1
+# [[1, 2], [2, 3], [3, 4], [4, 5], [5, 6]] 5
+# [[1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [1, 6]] 5
+# [[2, 4], [3, 5], [4, 6], [1, 3]] 2
+# [[1, 5], [2, 6], [3, 7], [4, 8], [4, 5]] 1
+# [[1, 2], [2, 3], [1, 3], [3, 4], [4, 5], [3, 5]] 4
+# [[0,4],[5,10],[6,8],[8,9]], 3
+##선생님 풀이
+# def solution(targets):
+#     #요격 미사일은 한번 이상은 쏴야 함
+#     answer = 1
+#     #포격 위치들을 끝점 e를 기준으로 오름차순 정렬
+#     targets.sort(key = lambda x:x[1])
+#
+#     #기준 포격점 t (마지막으로 선분이 겹치는 끝점)
+#     t = targets[0][1]
+#     #기준좌표와 현재 좌표의 s좌표를 비교하며
+#     #서로 겹치는 선분인지 확인함.
+#     #겹치지 않는다면? 미사일을 한번 더 쏴야한다.
+#     for s,e in targets[1:]:
+#         if s >= t:
+#             t = e
+#             answer += 1
+#     return answer
+#유사 칸토이 비트열
+#과정
+# 1. 비트열을 구한다
+# 2. l,r의 리스트로 쪼갠다
+# 3. 그안에 있는 1의 개수를 샌다
+#라고 생각했으나 아니라고한다. 그러나 1이 몇개인지는 셀 수 있을듯하다
+
+# 0 =1
+# 1 = 11011
+# 2 = 1101111011000001101111011
+# 3 = 11011110110000011011110111101111011000001101111011000000000000000000000000011011110110000011011110111101111011000001101111011
+#정리 2 = 1을 4개 넣고 그사이에 zero_area가 있음
+#3= 2를 4개 이어붙이고 그 사이에 zero_area가 있음
+dic = {0:'1',1:'11011'}
+def solve(n):
+    zero_length = (5 ** n)//5
+    if n in dic:
+        return dic[n]
+    else:
+        dic[n] = solve(n-1)*2 + '0' * zero_length + solve(n-1)*2
+        return dic[n]
+def solution(n, l, r):
+    answer_arr = [i for i in range(l,r+1)]
+    answer = 0
+    beat_arr = solve(n)
+    for i in answer_arr:
+        if beat_arr[i-1] == '1':
+            answer += 1
+    return answer
+print(solution(n = 2, l = 4, r = 17))
+##시간초과
+#난 이유:
+#문자열을 만드는 순간 메모리초과가 발생할 수 있다
+# #선생님 풀이
+# def solution(n,l,r):
+#     #m번째 칸토어에서 p위치이 1의 개수를 찾는 재귀함수
+#     def cantor(m,p):
+#         pl = p
+#         pr = p + (5**m)
+#         #최적화기법,, 부분 비트열이 l,r을 벗어나는 경우 계산하지 않음
+#         if not((pl<=r <= pr) or (l <= pr <= r)):
+#             return 0
+# 
+#         #0번째 항이면 해당 p위치 l,r 범위에 있는지 한번 더 검사
+#         #범위 내에 있으면 1아니면 0
+#         if m == 0:
+#             if p<l or p>r:
+#                 return 0
+#             else:
+#                 return 1
+# 
+#         #m -1 번째 항의 비트열에서 1의 개수 찾기
+#         m = m-1
+# 
+#         return cantor(m,p) + \
+#             cantor(m,p+ (5**m)*1)+ \
+#             cantor(m, p + (5 ** m) * 3) + \
+#             cantor(m, p + (5 ** m) * 4)
+#     #n-1의 번째 항의 비트열에서 1의 개수 찾기
+#     n = n-1
+# 
+#     return cantor(n, 1) + \
+#         cantor(n, 1 + (5 ** n) * 1) + \
+#         cantor(n, 1 + (5 ** n) * 3) + \
+#         cantor(n, 1 + (5 ** n) * 4)
+# print(solution(2,4,17))
