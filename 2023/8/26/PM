@@ -1,0 +1,80 @@
+# #클래스의 상속
+# #오버로딩
+# #super = 클래스 상속에서 부모클래스의 함수를 조금 가져다쓰고싶을때 사용한다.
+# class add:
+#     def __init__(self,data):
+#         self.data = data
+#     def __add__(self, other):
+#         return self.data + other
+#     def __mul__(self, other):
+#         return self.data*other
+# two = add('TEST')
+# print(two + 'class')
+# print(two*4)
+
+# class Calculator:
+#     def __init__(self,data = 0):
+#         self.data = data
+#         self.mylsit = [str(self.data)]
+#     def __add__(self, other):
+#         self.data += other
+#         self.mylsit.append(f' + {other}')
+#         return self.data
+#     def __sub__(self, other):
+#         self.data -= other
+#         self.mylsit.append(f' - {other}')
+#         return self.data
+#     def __mul__(self, other):
+#         self.data *= other
+#         self.mylsit.append(f' * {other}')
+#         return self.data
+#     def __floordiv__(self, other):
+#         self.data //= other
+#         self.mylsit.append(f' // {other}')
+#         return self.data
+#     def get_rec(self):
+#         result = ''
+#         for i in self.mylsit:
+#             result += i
+#         return result + f' = {self.data}'
+#     def clear(self):
+#         self.data = 0
+#         self.mylsit.clear()
+#         self.mylsit.append('0')
+#         return 0
+# cal1 = Calculator()
+# print(cal1 + 10)
+# print(cal1-2)
+# print(cal1*3)
+# print(cal1//2)
+# print(cal1.get_rec())
+# print(cal1.clear())
+# print(cal1 + 1)
+# print(cal1-2)
+# print(cal1*3)
+# print(cal1//2)
+# print(cal1.get_rec())
+class Animal:
+    def __init__(self,name):
+        self.name = name
+
+class Cat(Animal):
+    def 울음소리(self):
+        print("야옹")
+    def 희귀도(self):
+        print("LOW")
+class Dog(Animal):
+    def 울음소리(self):
+        print("멍멍")
+    def 희귀도(self):
+        print("Low")
+class Tiger(Cat):
+    def 울음소리(self):
+        print("어흥")
+    def 희귀도(self):
+        print("High")
+class Wolf(Dog):
+    def 울음소리(self):
+        print("아우우")
+    def 희귀도(self):
+        print("High")
