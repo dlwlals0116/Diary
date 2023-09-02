@@ -1,0 +1,67 @@
+# #백준 단어순서뒤집기
+# s = int(input())
+# arr = []
+# for _ in range(s):
+#     word = input()
+#     arr.append(word)
+# for i in range(len(arr)):
+#     stack = []
+#     answer = ''
+#     words =''
+#     for j in arr[i]:
+#         if j != " ":
+#             words += j
+#         else:
+#             stack.append(words)
+#             words = ""
+#     stack.append(words)
+#     for j in range(len(stack)):
+#         answer += stack.pop()+ " "
+#     print(f'Case #{i+1}: {answer}')
+# # 백준 스택 2
+# class Stack2:
+#     def __init__(self,stack_list:list):
+#         self.list = stack_list
+#     def carry_out(self, item):
+#         if item[0] == '1':
+#             self.list.append(item[2])
+#         elif item[0] == '2':
+#             if self.list:
+#                 print(self.list.pop())
+#             else:
+#                 print(-1)
+#         elif item[0] == '3':
+#             print(len(self.list))
+#         elif item[0] =='4':
+#             if self.list:
+#                 print(0)
+#             else:
+#                 print(1)
+#         elif item[0] == '5':
+#             if self.list:
+#                 print(self.list[-1])
+#             else:
+#                 print(-1)
+# import sys
+# input = sys.stdin.readline
+# stacklist = Stack2([])
+# s = int(input())
+# for _ in range(s):
+#     n = input()
+#     stacklist.carry_out(n)
+n = '((CH)2(OH2H)(C(H))O)3'
+element = {'H':1, 'C':12, 'O':16}
+n = n.replace('(', ' ').replace(')',' ').split()
+basket = []
+for i in n:
+    if i.isdigit():
+        basket.append(basket.pop()*int(i))
+        break
+    stack = []
+    for j in i:
+        if j not in element:
+            stack.append(stack.pop()*int(j))
+        else:
+            stack.append(element[j])
+    basket.append(sum(stack))
+print(sum(basket))
