@@ -1,0 +1,71 @@
+# def solution(order):
+#     i=0                #order의 위치
+#     num =1              #현재 택배 번호
+#     stack  = []      #보조 컨테이너벨트
+#     while num != len(order) + 1:
+#         #보조벨트에 택배 보관
+#         stack.append(num)
+#
+#         #보조벨트의 마지막 택배가 현재 찾는 택배 번호라면 보조벨트에서 택배를 꺼냄
+#         while len(stack) and stack[-1] == order[i]:
+#             i += 1
+#             stack.pop()
+#         num += 1
+#     return i
+# order = [1,2,4,3,5]
+# print(solution(order))
+
+# def bit_reverse(num):
+#     binary = '0' + format(num, 'b')
+#     print(binary)
+#     zidx = binary.rfind('0')
+#     binary = binary[:zidx] + '10' + binary[zidx + 2:]
+#     return int(binary,2)
+# def solution(numbers):
+#     answer = []
+#     for num in numbers:
+#         if num%2:
+#             answer.append(bit_reverse(num))
+#         else:
+#             answer.append(num+1)
+#     return answer
+# print(solution(numbers = [7]))
+# #내가 푼것, 알고리즘자체는 선생님것과 비슷, 시간초과
+# def solution(sequence, k):
+#     answer = []
+#     a = 0
+#     b = 1
+#     while a < len(sequence):
+#         if sum(sequence[a:a+b]) == k:
+#             answer.append([a,a+b-1])
+#             a +=1
+#             b = 1
+#         else:
+#             b +=1
+#         if b == len(sequence)-1:
+#             b = 1
+#             a += 1
+#     answer.sort(key=lambda x:x[1]-x[0])
+#     return answer[0]
+# sequence =		[2, 2, 2, 2, 2]
+# k = 6
+# print(solution(sequence, k))
+
+#쌤버전
+def solution(sequence, k):
+    r = [0,999999]
+    t = 0
+    e = 0
+    for s in range(len(sequence)):
+        #끝인덱스를 늘려가며 부분수열의 k와 같거나 클 때까지 합을 계산
+        while e < len(sequence) and t<k:
+            t += sequence[e]
+            e += 1
+
+        #합이 같다면 최소 길이의 부분 수열 s,e 인덱스를 결정
+        if t == k and r[1] -r[0] > (e-1) -s:
+            r = [s,e-1]
+        #다음 loop에서 시작인덱스를 오른쪽으로 이동시키므로
+        #시작인덱스의 값을 부분수열의 합에서 빼줌
+        t -= sequence[s]
+    return r
