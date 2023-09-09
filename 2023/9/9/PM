@@ -1,0 +1,45 @@
+# 백준 화학식량
+# import sys
+# input = sys.stdin.readline
+#
+# evaluation = input().rstrip()
+# atom = {'H':1, 'O':16, 'C':12}
+# stack = []
+#
+# for ev in evaluation:
+#     if ev == '(':
+#         stack.append(ev)
+#     elif ev == ')':
+#         summery = 0
+#         #반복문을 토해 괄호 안에 있는 수를 더하여 stack에 추가
+#
+#         while True:
+#             st = stack.pop()
+#             if st == '(':
+#                 break
+#             summery += st
+#         stack.append(summery)
+#     #문자가 원자라면 stack에 원자량을 추가
+#     elif ev in atom:
+#         stack.append(atom[ev])
+#     #입력받은 문자가 괄호도 아니고 원자도 아니면 숫자이니
+#     #stack의 마지막 숫자를 입력받은 문자로 곱해준다
+#     else:
+#         stack[-1] *= int(ev)
+# print(sum(stack))
+
+#올바른 괄호
+def solution(s):
+    stack = []
+    for i in s:
+        if not stack:
+            stack.append(i)
+        elif i == ')':
+            stack.pop()
+        else:
+            stack.append('(')
+    if stack:
+        return False
+    return True
+s ="()()"
+print(solution(s))
