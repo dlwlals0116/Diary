@@ -1,0 +1,62 @@
+# #프로그래머스 괄호 회전하기
+# def parenthesis(arr):
+#     stack = []
+#     if arr[0] == ']' or arr[0] == ')' or arr[0] == '}':
+#         return False
+#     if arr[-1] == '[' or arr[-1] == '(' or arr[-1] == '{':
+#         return False
+#     for i in arr:
+#         if i == '{'or i == '[' or i == '(':
+#             stack.append(i)
+#         else:
+#             if stack:
+#                 if i == ')' :
+#                     if stack[-1] == '(':
+#                         stack.pop()
+#                 elif i == '}' :
+#                     if stack[-1] == '{':
+#                         stack.pop()
+#                 elif i == ']' :
+#                     if stack[-1] == '[':
+#                         stack.pop()
+#                 else:
+#                     stack.append(i)
+#     return True if not stack else False
+# def solution(s):
+#     answer = 0
+#     cnt = 0
+#     while cnt < len(s):
+#         if parenthesis(s):
+#             answer += 1
+#         bas = s[0]
+#         s = s.replace(bas,'',1)
+#         s += bas
+#         cnt += 1
+#     return answer
+# print(solution("}]()[{"))
+# #프로그래머스 할인행사
+# def solution(want, number, discount):
+#     answer = 0
+#     for i in range(len(discount)-sum(number)+1):
+#         mart_kart = dict(zip(want, number))
+#         for j in range(i, i+sum(number)):
+#             if discount[j] in want:
+#                 mart_kart[discount[j]] -= 1
+#         if all(e == 0 for e in mart_kart.values()):
+#             answer += 1
+#     return answer
+# want = ["banana", "apple", "rice", "pork", "pot"]
+# number = [3, 2, 2, 2, 1]
+# discount = ["chicken", "apple", "apple", "banana",
+#             "rice", "apple", "pork", "banana", "pork",
+#             "rice", "pot", "banana", "apple", "banana"]
+# print(solution(want,number,discount))
+# # 프로그래머스 행렬의 곱셈
+# # numpy로 풀기
+import numpy as np
+def solution(arr1, arr2):
+    answer = np.array(arr1)@np.array(arr2)
+    return answer.tolist()
+arr1  = [[1, 4], [3, 2], [4, 1]]
+arr2 = [[3, 3], [3, 3]]
+print(solution(arr1,arr2))
