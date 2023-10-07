@@ -1,0 +1,49 @@
+class QueueElement:
+    def __init__(self,data,link):
+        self.data = data
+        self.link = link
+
+class Queue:
+    def __init__(self):
+        self.rear = None
+        self.front = None
+    def enque(self,data):
+        if self.rear is None:
+            elem = QueueElement(data,None)
+            self.rear = self.front = elem
+        else:
+            elem = QueueElement(data,None)
+            self.rear.link = elem
+            self.rear = elem
+
+    def deque(self):
+        if self.front is None:
+            return None
+        elif self.rear == self.front:
+            ret_data = self.front.data
+            self.rear = self.front = None
+            return ret_data
+        else:
+            ret_data = self.front.data
+            self.front = self.front.link
+            return ret_data
+
+    def reverse(self):
+        prev = self.front
+        curr = prev.link
+        while curr !=None:
+            next = curr.link
+            curr.link = prev
+            prev = curr
+            curr = next
+        res = self.front
+        self.front = self.rear
+        self.rear = res
+
+
+q = Queue()
+for i in range(1,6):
+    q.enque(i)
+q.reverse()
+for _ in range(5):
+    print(q.deque())
