@@ -1,0 +1,147 @@
+##데코레이터 정의
+# def my_decorator(func):
+#     def wrapper(*args, **kwargs):
+#         #함수 호출 전에 수행할 작업
+#         print("함수 호출 전에 어떤 작업을 합니다")
+#
+#         #원래 함수 호출
+#         result = func(*args, **kwargs)
+#
+#         #함수 호출 후에 수행할 작업
+#         print("함수 호출 후에 어떤 작업을 합니다")
+#
+#         return result
+#     return wrapper()
+#
+# #데코레이터 적용
+# @my_decorator
+# def my_function():
+#     print("함수를 호출합니다")
+#
+# #데코레이터 사용이점
+# # 1. 가독성과 모듈성 향상
+# # 2. 재사용성
+# # 3. 분리된 관심사
+# # 4. 기능의 확장
+# # 5. 코드의 재구조화
+# def addition_log(func):
+#     def wrapper(*args, **kwargs):
+#         result = func(*args, **kwargs)
+#         print("[LOG] 두숫자의합", result)
+#         return result
+#     return wrapper
+# @addition_log
+# def add(a,b):
+#     return a+b
+# result = add(3,5)
+# print("함수의 결과값", result)
+#
+# #데코레이터의 다양한 활용
+# # 1. 로깅(logging): 함수가 호출될 때마다 로그를 남기는 데코레이터를 만들 수 있다. 이를 통해 디버깅이나 코드실행과정을 추적할때 유용하다
+# # 2. 성능측정(Performance Measurement): 함수의 실행시간을 측정하고자 할때, 데코레이터를 ㄹ활용하여 간단히 처리할 수 있다. 이를통해 병목현상을 찾거나 성능 최적화에 도움이 된다.
+# # 3. 캐싱(Caching): 함수의 결과를 캐시에 저장하여 중복계산을 피하고 성능을 향상시킬 수 있다.
+# #입력값 검증 데코레이터
+# def validate_input(func):
+#     def wrapper(*args, **kwargs):
+#         for i in args:
+#             if type(i) != int:
+#                 raise TypeError(f"숫자값을 입력하세요 , 입력된값 = {i}")
+#             else:
+#                 if i>10 or i<1:
+#                     raise ValueError(f"1이상 10 이하의 값을 입력하세요 , 입력된값 = {i}")
+#         return result
+#     return wrapper
+#
+# @validate_input
+# def process(*args):
+#     return args
+#
+# result = process(1,2,9)
+#
+# #입력값 변화 데코레이터
+# def not_none_list_input(func):
+#     def wrapper(*args):
+#        #수정을 위해 튜플을 리스트로 변경
+#         args = list(args)
+#
+#         for i in range(len(args)):
+#             if type(args[i]) == list:
+#                 args[i] = list(filter(lambda x: x is not None, args[i]))
+#         print(args)
+#         return func(*args)
+#     return wrapper
+#
+# @not_none_list_input
+# def squared_list(data):
+#     return [num ** 2 for num in data]
+#
+# input_list = [1,None,-2,3,None,4,5]
+# result = squared_list(input_list)
+# print("None 값을 제외한 제곱 결과:", result)
+#
+# #파라미터가 있는 데코레이터
+# def validate_input2(start, end):
+#     #실제 데코레이터 함수를 정의
+#     def decorator(func):
+#         #원본함수에 추가적인 작업을 수행할 두번째 중첩함수를 정의
+#         def wrapper(*args):
+#             #상세로직작성
+#             for arg in args:
+#                 if not (start <= arg <= end):
+#                     raise ValueError(f"{start}이상 {end} 이하의 값을 입력하세요 , 입력된값 = {arg}")
+#             return func(*args)
+#         return wrapper
+#     return decorator
+# # @validate_input2(start=1,end=8) -> 이렇게 사용
+#
+# import time
+# def timelogger(end_time):
+#     def decorater(func):
+#         def wrapper(*args, **kwargs):
+#             start = time.time()
+#             result = func(*args,**kwargs)
+#             end = time.time()
+#             #수행시간
+#             elapsed_time = end - start
+#
+#             print(f"{func.__name__} 실행시간 {elapsed_time:.4f} 초")
+#             if elapsed_time > end_time:
+#                 print(f"경고: 실행시간이 임계값 {end_time}을 넘었습니다!")
+#             return result
+#         return wrapper
+#     return decorater
+#
+# @timelogger(2)
+# def slow_function():
+#     time.sleep(3)
+#     print("slow_function 실행완료")
+#
+# @timelogger(2)
+# def fast_function():
+#     time.sleep(1)
+#     print("fast_function 실행완료")
+# slow_function()
+# fast_function()
+def type_check(*types):
+    def decorater(func):
+        def wrapper(*args):
+            for i in range(len(args)):
+                if type(args[i]) != types[i]:
+                    raise TypeError(f"{i+1}번째 인자는 {types[i].__name__}이어야합니다.")
+            return func(*args)
+        return wrapper
+    return decorater
+
+@type_check(int, float)
+def add(a,b):
+    return a+b
+@type_check(str, int)
+def repeat(a,b):
+    return a*b
+
+result1 = add(3,5.0)
+print("add 결과:", result1)
+result2 = repeat('hello',2)
+print('repeat 결과', result2)
+#타입이 다른 경우 예외 발생
+result3 = add(4,5)
