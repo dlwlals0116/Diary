@@ -1,1 +1,37 @@
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>웹 페이지 제목</title>
+    </head>
+    <body>
+        <h1> 제목1</h1>
+        <!--제목과 단락 -->
+        <p>이것은 첫번째 단락입니다</p>
+        <p1>이것은 두번째 단락입니다</p1>
+        <ul>
+            <li>첫번째항목</li>
+            <li>두번째항목</li>
+            <li>세번째항목</li>
+        </ul>
+        <ol>
+            <li>첫번째항목</li>
+            <li>두번째항목</li>
+            <li>세번째항목</li>
+        </ol>
+        <!--링크-->
+        <a href = "https://www.naver.com">네이버링크</a>
+        <!--이미지-->
+        <img src = '/img/dog-8232158_1280.jpg' alt = '이미지설명'>
+        <!--표-->
+        <table>
+            <tr>
+                <td>셀 1</td>
+                <td>셀 2</tr>
+            </tr>
+            <tr>
+                <td>셀 3</td>
+                <td>셀 4</tr>
+            </tr>
+        </table>
+    </body>
+</html>
