@@ -1,0 +1,74 @@
+class DequeElement:
+    def __init__(self, data, left,right):
+        self.data = data
+        self.left = left
+        self.right = right
+
+class Deque:
+    def __init__(self):
+        self.rear = None
+        self.front = None
+    def insert_rear(self,data):
+        if self.rear is None:
+            elem = DequeElement(data, None, None)
+            self.rear = self.front = elem
+        else:
+            elem = DequeElement(data, None, self.rear)
+            self.rear.left = elem
+            self.rear = elem
+    def insert_front(self, data):
+        if self.front is None:
+            elem = DequeElement(data, None, None)
+            self.rear = self.front = elem
+        else:
+            elem = DequeElement(data, self.front, None)
+            self.front.right = elem
+            self.front = elem
+    def delete_rear(self):
+        if self.rear is None:
+            return None
+        elif self.rear == self.front:
+            ret_data = self.rear.data
+            self.rear = self.front = None
+            return ret_data
+        else:
+            ret_data = self.rear.data
+            self.rear = self.rear.right
+            self.rear.left = None
+            return ret_data
+    def delete_front(self):
+        if self.front is None:
+            return None
+        elif self.rear == self.front:
+            ret_data = self.front.data
+            self.rear = self.front = None
+            return ret_data
+        else:
+            ret_data = self.front.data
+            self.front = self.front.left
+            self.front.right = None
+            return ret_data
+    def reverse(self):
+        curr = self.front
+        while curr:
+            curr.left, curr.right = curr.right, curr.left
+            curr = curr.right
+        self.rear, self.front = self.rear, self.front
+
+dq = Deque()
+for i in range(1,11):
+    if i%2 == 0:
+        dq.insert_rear(i)
+    else:
+        dq.insert_front(i)
+    print(f"rear:{dq.rear.data}, front:{dq.front.data}")
+#dq : [10,8,6,4,2,1,3,5,7,9]
+dq.reverse()
+print("deletefront입니다")
+for i in  range(5):
+    print(dq.delete_front(), end=' -> ')
+    # 9 -> 7 -> 5 -> 3 -> 1 ->
+print("\ndeleterear입니다")
+for i in  range(5):
+    print(dq.delete_rear(), end=' -> ')
+    # 10 -> 8 -> 6 -> 4 -> 2 ->
