@@ -23,15 +23,28 @@ window.addEventListener('load', function() {
         });
 
         // 요청 완료 후 응답을 처리하기 위한 콜백 등록
-        let textPromise=promise.then(function(response) {
-            return response.text();
-        });
+        // let textPromise=promise.then(function(response) {
+        //     return response.text();
+        // });
 
-        // 요청 body를 텍스트로 변환하는 promise 객체에
-        // 변환 완료 후 동작을 위한 콜백 등록
-        textPromise.then(function(text) {
+        // // 요청 body를 텍스트로 변환하는 promise 객체에
+        // // 변환 완료 후 동작을 위한 콜백 등록
+        // textPromise.then(function(text) {
+        //     let receive = document.querySelector('#receive');
+        //     receive.value = text;
+        // });
+
+        (async function() {
+            let response = await fetch(url, {
+
+                method: method,
+                body  : formData
+            });
+
+            let text = await respose.text();
+
             let receive = document.querySelector('#receive');
             receive.value = text;
-        });
+        })();
     });
 });
